@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+	overflow-x: hidden;
+}
+* {
+  box-sizing: inherit;
+}
+*:before {
+  box-sizing: inherit;
+}
+*:after {
+  box-sizing: inherit;
+}
+
+
+body {
+	@apply bg-light;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+.boxed {
+	@apply mx-auto;
+}
+a {
+	@apply text-red;
+}
+
+.panel {
+	display: flex;
+	flex-direction: column;
+}
+.panel .tile,
+.panel .footer  {
+	@apply p-4;
+}
+.panel .tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	justify-items: center;
+	flex: 1;
+}
+.panel .tile .title,
+.panel .tile .body {
+	@apply font-sans;
+}
+.panel .footer {
+	display: flex;
+	flex-direction: row;
+	justify-items: center;
+	@apply font-mono text-2xl;
+}
+
+.panel.panel-full-height {
+	height: 100vh;
+}
+
+
+.panel.panel-red .tile {
+	@apply bg-red text-white;
+}
+.panel.panel-red .footer {
+	@apply bg-white text-red;
+}
+
+
+
+
+h2 {
+	margin: 0 0 1.45rem 0;
+	padding: 0;
+  color: inherit;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+  font-size: 1.62671rem;
+	line-height: 1.1;
+	@apply font-sans;
+}
