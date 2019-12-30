@@ -14,6 +14,10 @@ import NBClogo from "../images/logo/nbc.svg"
 import HNlogo from "../images/logo/hackernews.svg"
 import TClogo from "../images/logo/techcrunch.svg"
 import CDlogo from "../images/logo/coindesk.svg"
+import TwitterLogo from "../images/logo/twitter.svg"
+import GithubLogo from "../images/logo/github.svg"
+import DiscordLogo from "../images/logo/discord.svg"
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlay, faArrowRight } from "@fortawesome/free-solid-svg-icons"
@@ -382,6 +386,23 @@ const IndexPage = () => {
                   <pre>{code_browser_b}</pre>
                 </li>
               </ol>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="inner boxed">
+            <span class="pr-16 hidden sm:block footerlead">Join us!</span>
+            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+              <TwitterLogo />
+              <span class="ml-3 text-xs whitespace-pre">Follow GUN on Twitter</span>
+            </div>
+            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+              <GithubLogo />
+              <span class="ml-3 text-xs whitespace-pre">Star GUN on Github</span>
+            </div>
+            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+              <DiscordLogo />
+              <span class="ml-3 text-xs whitespace-pre">Join our Discord</span>
             </div>
           </div>
         </div>
