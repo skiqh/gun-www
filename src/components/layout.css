@@ -30,19 +30,57 @@ body {
 }
 
 .boxed {
-	@apply mx-auto;
+	@apply mx-auto w-full px-6;
 }
-a {
+@screen lg {
+	.boxed {
+		@apply w-960 px-0;
+	}
+}
+
+header a {
+	@apply text-dark;
+}
+h2,
+h3,
+p {
+	@apply font-sans;
+}
+p a {
 	@apply text-red;
 }
+
+.links {
+	@apply mt-16 text-sm;
+}
+
+.links .svg-inline--fa {
+	@apply mr-2 text-red text-xs;
+}
+.links a {
+	@apply font-mono mb-4;
+	line-height: 1;
+	display: block;
+}
+
+@screen lg {
+	.links {
+		@apply text-sm mt-12;
+	}
+}
+
+
+pre {
+	@apply font-mono !important;
+}
+
 
 .panel {
 	display: flex;
 	flex-direction: column;
 }
-.panel .tile,
-.panel .footer  {
-	@apply p-4;
+.panel .tile.code {
+	@apply py-2;
 }
 .panel .tile {
 	display: flex;
@@ -52,30 +90,166 @@ a {
 	justify-items: center;
 	flex: 1;
 }
-.panel .tile .title,
-.panel .tile .body {
-	@apply font-sans;
+.panel .tile .inner {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
-.panel .footer {
+.panel .footer .inner {
 	display: flex;
 	flex-direction: row;
-	justify-items: center;
+	align-items: center;
+	justify-content: space-between;
+}
+.panel .footer {
+	@apply bg-white;
+}
+.panel .inner  {
+	@apply py-6  h-32;
+}
+.panel.panel-small .inner  {
+	@apply py-1 px-2 h-auto;
+}
+.panel .footer {
 	@apply font-mono text-2xl;
+}
+.panel.panel-small .footer  {
+	@apply py-1 px-2;
+}
+
+.panel .footer .item {
+	overflow: hidden;
+}
+.panel .footer .item svg {
+	max-width: 100%;
+	max-height: 100%;
+}
+.panel.panel-small .footer {
+	@apply font-mono text-xxs;
+}
+.footerlead {
+	@apply text-red;
+}
+.panel .footer .footericon {
+	@apply p-2 text-red;
 }
 
 .panel.panel-full-height {
 	height: 100vh;
 }
 
+pre, code {
+	@apply text-xs;
+}
+.knobs .one {
+	@apply text-red;
+}
+.knobs .two {
+	@apply text-yellow;
+}
+.knobs .three {
+	@apply text-green;
+}
+pre.window {
+	position: relative;
+}
+pre.window .knobs {
+	position: absolute;
+	top: 0.6rem;
+	left: 0.6rem;
+}
+
+.guninfiveminutes pre,
+.guninfiveminutes code {
+	@apply px-3 py-2 bg-white text-dark my-4 inline-block;
+}
+
+
 
 .panel.panel-red .tile {
 	@apply bg-red text-white;
 }
-.panel.panel-red .footer {
-	@apply bg-white text-red;
+.panel.panel-red .footer .footerlead,
+.panel.panel-red .footer .footericon {
+	@apply text-red;
+}
+
+.panel.panel-green .tile {
+	@apply bg-green text-white;
+}
+.panel.panel-green .footer .footerlead,
+.panel.panel-green .footer .footericon {
+	@apply text-green;
+}
+
+.panel.panel-blue .tile {
+	@apply bg-blue text-white;
+}
+.panel.panel-blue .footer .footerlead,
+.panel.panel-blue .footer .footericon {
+	@apply text-blue;
+}
+
+.panel.panel-purple .tile {
+	@apply bg-purple text-white;
+}
+.panel.panel-purple .footer .footerlead,
+.panel.panel-purple .footer .footericon {
+	@apply text-purple;
+}
+
+.panel.panel-violet .tile {
+	@apply bg-violet text-white;
+}
+.panel.panel-violet .footer .footerlead,
+.panel.panel-violet .footer .footericon {
+	@apply text-violet;
+}
+
+.panel.panel-cyan .tile {
+	@apply bg-cyan text-white;
+}
+.panel.panel-cyan .footer .footerlead,
+.panel.panel-cyan .footer .footericon {
+	@apply text-cyan;
 }
 
 
+
+
+
+
+.panel.panel-yellow .tile {
+	@apply bg-yellow text-dark;
+}
+.panel.panel-yellow .links .svg-inline--fa {
+	@apply text-violet;
+}
+.panel.panel-yellow .footer .footerlead, 
+.panel.panel-yellow .footer .footericon {
+	@apply text-violet
+}
+
+
+
+.guninfiveminutes ol {
+	list-style-type: none;
+  list-style-type: none;
+}
+.guninfiveminutes ol li {
+	counter-increment: step-counter;
+	position: relative;
+  @apply mb-12;
+}
+.guninfiveminutes ol li::before {
+  content: counter(step-counter) '.';
+  position: absolute;
+	left: -3rem;
+	top: -0.5rem;
+	@apply text-4xl font-mono;
+}
 
 
 h2 {
@@ -84,7 +258,19 @@ h2 {
   color: inherit;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
-	line-height: 1.1;
-	@apply font-sans;
+	line-height: 1.3;
+	@apply font-sans text-3xl;
 }
+
+h3 {
+	margin: 0 0 1.45rem 0;
+	padding: 0;
+  color: inherit;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+  text-rendering: optimizeLegibility;
+	line-height: 1.3;
+	@apply font-sans text-lg;
+}
+
