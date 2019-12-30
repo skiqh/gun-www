@@ -143,23 +143,6 @@ pre {
 pre, code {
 	@apply text-xs;
 }
-.knobs .one {
-	@apply text-red;
-}
-.knobs .two {
-	@apply text-yellow;
-}
-.knobs .three {
-	@apply text-green;
-}
-pre.window {
-	position: relative;
-}
-pre.window .knobs {
-	position: absolute;
-	top: 0.6rem;
-	left: 0.6rem;
-}
 
 .guninfiveminutes pre,
 .guninfiveminutes code {
