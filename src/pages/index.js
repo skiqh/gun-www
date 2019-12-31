@@ -2,6 +2,7 @@ import React from "react"
 import { useEffect } from "react"
 import { Link } from "gatsby"
 // import Prism from "prismjs"
+import Hyphenated from "react-hyphen"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -20,7 +21,11 @@ import DiscordLogo from "../images/logo/discord.svg"
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlay, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import {
+  faPlay,
+  faArrowRight,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons"
 
 // require("prismjs/themes/prism-solarizedlight.css")
 
@@ -109,7 +114,7 @@ const IndexPage = () => {
           <div class="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
           <div class="order-1 md:order-3 w-full md:w-smallcol">
-            <div class="panel panel-small">
+            <a href="##" class="panel panel-small">
               <div class="tile">
                 <img
                   src={NBCcover}
@@ -122,17 +127,19 @@ const IndexPage = () => {
                     <FontAwesomeIcon icon={faPlay} />
                   </div>
                   <div class="ml-3">
-                    GUN author Mark Nadal on why he is building a decentralized
-                    web, and what it looks like.
+                    <Hyphenated>
+                      GUN author Mark Nadal on why he is building a
+                      decentralized web, and what it looks like.
+                    </Hyphenated>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
         <div class="flex flex-col md:flex-row mb-air">
           <div class="w-full md:w-smallcol">
-            <div class="panel panel-small">
+            <a href="##" class="panel panel-small">
               <div class="tile">
                 <img
                   src={Nordiccover}
@@ -145,22 +152,27 @@ const IndexPage = () => {
                     <FontAwesomeIcon icon={faPlay} />
                   </div>
                   <div class="ml-3">
-                    Mark Nadal at Nordic.js 2017 - The Design and Evolution of
-                    Event-Driven Databases
+                    <Hyphenated>
+                      Mark Nadal at Nordic.js 2017 - The Design and Evolution of
+                      Event-Driven Databases
+                    </Hyphenated>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div class="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
           <div class="w-full md:w-3/5 lg:w-1/2">
-            <h2>Get ready to disrupt Big Tech</h2>
+            <h2>Powerful and flexible</h2>
             <p>
-              GUN is a database engine that runs everywhere JavaScript does —
-              browsers, mobile devices and servers, allowing you to build
-              exactly the data system you want.
+              <Hyphenated>
+                GUN is a database engine that runs everywhere JavaScript does —{" "}
+                <a href="##">browsers</a>, <a href="##">mobile devices</a> and{" "}
+                <a href="##">servers</a>, allowing you to build exactly the data
+                system you want.
+              </Hyphenated>
             </p>
             <div class="links">
               <a href="##">
@@ -180,8 +192,10 @@ const IndexPage = () => {
           <div class="boxed">
             <h3>8 Million users and counting</h3>
             <h2>
-              GUN is powering decentralized platforms with millions of users and
-              vastly different requirements on a shoestring budget.
+              <Hyphenated>
+                GUN is powering decentralized platforms with millions of users
+                and vastly different requirements on a shoestring budget.
+              </Hyphenated>
             </h2>
             <div class="links">
               <a href="##">
@@ -222,9 +236,11 @@ const IndexPage = () => {
           <div class="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
             <h2>Decentralized auth built-in</h2>
             <p>
-              GUN's security module is built on strong encryption standards and
-              works completely decentralized. In other words — real privacy with
-              no single point of failure.
+              <Hyphenated>
+                GUN's <a href="##">security module</a> is built on strong
+                encryption standards and works completely decentralized. In
+                other words — real privacy with no single point of failure.
+              </Hyphenated>
             </p>
             <div class="links">
               <a href="##">
@@ -285,9 +301,12 @@ const IndexPage = () => {
           <div class="w-full md:w-3/5 lg:w-1/2">
             <h2>Graph data for the win</h2>
             <p>
-              GUN's graph data model allows you to use intuitive data structures
-              and queries, while still being capable of doing 20M+ API ops/sec
-              in just ~9KB gzipped size.
+              <Hyphenated>
+                GUN's <a href="##">graph data model</a> allows you to use
+                intuitive data structures and queries, while still being capable
+                of doing <a href="##">20M+ API ops/sec</a> in just ~9KB gzipped
+                size.
+              </Hyphenated>
             </p>
             <div class="links">
               <a href="##">
@@ -306,9 +325,11 @@ const IndexPage = () => {
           <div class="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
             <h2>Respond in real-time</h2>
             <p>
-              Any remote updates to the data you subscribe to will be
-              automatically propagated through the network, so you can react to
-              changes as they happen.
+              <Hyphenated>
+                Any remote updates to the data you subscribe to will be
+                automatically propagated through the network, so you can react
+                to changes as they happen.
+              </Hyphenated>
             </p>
             <div class="links">
               <a href="##">
@@ -325,7 +346,7 @@ const IndexPage = () => {
           <div class="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
           <div class="order-1 md:order-3 w-full md:w-smallcol">
-            <div class="panel panel-small panel-cyan">
+            <div class="panel panel-small panel-blue">
               <div class="tile code">
                 <pre class="language-js">{code_realtime}</pre>
               </div>
@@ -345,7 +366,7 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div class="panel panel-blue">
+      <div class="panel panel-cyan" id="guninfiveminutes">
         <div class="tile py-air">
           <div class="boxed">
             <div class="guninfiveminutes md:w-8/12">
@@ -353,21 +374,40 @@ const IndexPage = () => {
               <ol>
                 <li>
                   <p>
-                    <strong>Start a GUN peer.</strong> A peer is a remote
-                    database instance that you can sync your data with. You can
-                    deploy one to heroku, spin it up in docker, or use the
-                    node.js API directly. Assuming you have node.js and npm
-                    installed, you can just use GUN's command line interface
-                    like this:
+                    <strong>Start a GUN peer. </strong>
+                    <Hyphenated>
+                      A peer is a remote database instance that you can sync
+                      your data with. You can deploy one to{" "}
+                      <a href="##">heroku</a>, spin it up in{" "}
+                      <a href="##">docker</a>, or use the{" "}
+                      <a href="##">node.js API directly</a>.
+                    </Hyphenated>
+                  </p>
+                  <p>
+                    <Hyphenated>
+                      Assuming you have node.js and npm installed, you can just
+                      use <a href="##">GUN's command line interface</a> like
+                      this:
+                    </Hyphenated>
                   </p>
                   <code>npx gun-cli --host 127.0.0.1</code>
                 </li>
                 <li>
                   <p>
-                    <strong>Add the GUN library.</strong> GUN runs in browsers
-                    (going back to IE 6), in Node.js, Electron, and even React
-                    Native. Install it from npm, or download it here. To get
-                    going, just add GUN to your website from a CDN:
+                    <strong>Add the GUN library. </strong>
+                    <Hyphenated>
+                      GUN runs in <a href="##">browsers</a> (going back to IE
+                      6), in <a href="##">Node.js</a>, <a href="##">Electron</a>
+                      , and even <a href="##">React Native</a>. Install it from{" "}
+                      <a href="##">npm</a>, or <a href="##">download it here</a>
+                      .
+                    </Hyphenated>
+                  </p>
+                  <p>
+                    <Hyphenated>
+                      To get going, just add GUN to your website from a{" "}
+                      <a href="##">CDN</a>:
+                    </Hyphenated>
                   </p>
                   <code>
                     {`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
@@ -375,38 +415,180 @@ const IndexPage = () => {
                 </li>
                 <li>
                   <p>
-                    <strong>Play around with your data.</strong> GUN's core API
-                    is deliberately small but powerful. For more, check out
-                    GUN's many useful extensions or explore its wider ecosystem.
-                    As an example, try relaying live data over the GUN peer you
-                    just started — run the following snippets in the consoles of
-                    two separate tabs or browsers:
+                    <strong>Play around with your data. </strong>
+                    <Hyphenated>
+                      GUN's <a href="">core API</a> is deliberately small but
+                      powerful. For more, check out GUN's many{" "}
+                      <a href="##">useful extensions</a> or explore its <a href="##">wider ecosystem</a>
+                    </Hyphenated>
+                  </p>
+                  <p>
+                    <Hyphenated>
+                      As an example, try relaying live data over the GUN peer
+                      you just started — run the following snippets in the
+                      consoles of two separate tabs or browsers:
+                    </Hyphenated>
                   </p>
                   <pre>{code_browser_a}</pre>
                   <pre>{code_browser_b}</pre>
                 </li>
               </ol>
+              <h2>Nice, right?</h2>
+              <p>
+                <Hyphenated>
+                  But we've barely scratched the surface. Start the tutorial or
+                  check out the documentation to see what else you can do with
+                  GUN!
+                </Hyphenated>
+              </p>
+              <div class="links">
+                <a href="##">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                  Jump straight to GUN's Documentation
+                </a>
+                <a href="##">
+                  <FontAwesomeIcon icon={faArrowRight} />
+                  Tutorial: Create a multi-user public todo app
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div class="footer">
           <div class="inner boxed">
             <span class="pr-16 hidden sm:block footerlead">Join us!</span>
-            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+            <div class="item">
               <TwitterLogo />
-              <span class="ml-3 text-xs whitespace-pre">Follow GUN on Twitter</span>
+              <span class="linktext">Follow GUN on Twitter</span>
             </div>
-            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+            <div class="item">
               <GithubLogo />
-              <span class="ml-3 text-xs whitespace-pre">Star GUN on Github</span>
+              <span class="linktext">Star GUN on Github</span>
             </div>
-            <div class="item w-3/12 sm:w-2/9 h-10 flex flex-row items-center">
+            <div class="item">
               <DiscordLogo />
-              <span class="ml-3 text-xs whitespace-pre">Join our Discord</span>
+              <span class="linktext">Join our Discord</span>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="boxed h-16"></div>
+
+      <div class="panel panel-purple" id="panel-links">
+        <div class="tile py-air">
+          <div class="boxed">
+            <div class="flex flex-row items-start justify-between">
+              <div class="item">
+                <h2>Concepts</h2>
+                <ul class="font-mono text-dark">
+                  <li>
+                    <a href="##">HAM — Conflict resolution</a>
+                  </li>
+                  <li>
+                    <a href="##">SEA — Security &amp; encryption</a>
+                  </li>
+                  <li>
+                    <a href="##">RAD — Storage data structure</a>
+                  </li>
+                  <li>
+                    <a href="##">DAM — Mesh netwoking</a>
+                  </li>
+                  <li>
+                    <a href="##">AXE — Incentivised transfer</a>
+                  </li>
+                  <li>
+                    <a href="##">DHT — Finding content</a>
+                  </li>
+                  <li>
+                    <a href="##">CAP — Database tradeoffs</a>
+                  </li>
+                  <li>
+                    <a href="##">DAP — Distributed system limits</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item">
+                <h2>Links</h2>
+                <ul class="font-mono text-dark">
+                  <li>
+                    <a href="##">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="##">Docs</a>
+                  </li>
+                  <li>
+                    <a href="##">Github</a>
+                  </li>
+                  <li>
+                    <a href="##">Issues</a>
+                  </li>
+                  <li>
+                    <a href="##">Twitter</a>
+                  </li>
+                  <li>
+                    <a href="##">Discord</a>
+                  </li>
+                  <li>
+                    <a href="##">Youtube</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item">
+                <h2>Explainer Videos</h2>
+                <ul class="font-mono text-dark">
+                  <li>
+                    <a href="##">Chronological ordering</a>
+                  </li>
+                  <li>
+                    <a href="##">Proof of work</a>
+                  </li>
+                  <li>
+                    <a href="##">Digital signature</a>
+                  </li>
+                  <li>
+                    <a href="##">Data security</a>
+                  </li>
+                  <li>
+                    <a href="##">Crypto</a>
+                  </li>
+                  <li>
+                    <a href="##">more ...</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="item">
+                <h2>Technical Videos</h2>
+                <ul class="font-mono text-dark">
+                  <li>
+                    <a href="##">Conflict resolution algorithm</a>
+                  </li>
+                  <li>
+                    <a href="##">User accounts with SEA</a>
+                  </li>
+                  <li>
+                    <a href="##">Implementing lists in GUN</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="inner boxed">
+            <div class="footericon text-4xl">
+              <FontAwesomeIcon icon={faHeart} />
+            </div>
+            <div class="text-xs ml-4">
+              Made with love by the ERA team, and many very awesome
+              contributors. <br />
+              Liberally licensed under Zlib or MIT or Apache 2.0
+            </div>
+            <div class="flex-grow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="boxed h-16"></div>
     </Layout>
   )
 }

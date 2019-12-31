@@ -43,7 +43,7 @@ const Header = ({ siteTitle }) => (
         </div>
       </header>
       <div class="inner boxed">
-        <GUNlogo style={{ maxWidth: "20rem" }} alt="" />
+        <GUNlogo style={{ maxWidth: "20rem", minHeight: "10rem" }} alt="" />
         <h2 class="mt-12 text-4xl">
           The database for <br />
           freedom fighters

@@ -44,10 +44,18 @@ header a {
 h2,
 h3,
 p {
+	letter-spacing: 0.03em;
 	@apply font-sans;
 }
 p a {
+	border-bottom: 0.01em solid;
+}
+p a:hover {
 	@apply text-red;
+}
+
+p+p {
+	@apply mt-6;
 }
 
 .links {
@@ -137,7 +145,7 @@ pre {
 }
 
 .panel.panel-full-height {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 pre, code {
@@ -148,7 +156,6 @@ pre, code {
 .guninfiveminutes code {
 	@apply px-3 py-2 bg-white text-dark my-4 inline-block;
 }
-
 
 
 .panel.panel-red .tile {
@@ -166,6 +173,8 @@ pre, code {
 .panel.panel-green .footer .footericon {
 	@apply text-green;
 }
+
+
 
 .panel.panel-blue .tile {
 	@apply bg-blue text-white;
@@ -191,6 +200,12 @@ pre, code {
 	@apply text-violet;
 }
 
+.panel.panel-cyan .links .svg-inline--fa {
+	@apply text-yellow
+}
+.panel.panel-cyan .tile a:hover {
+	@apply text-yellow;
+}
 .panel.panel-cyan .tile {
 	@apply bg-cyan text-white;
 }
@@ -216,22 +231,47 @@ pre, code {
 }
 
 
+svg.inline-icon {
+	width: 1.5em;
+	height: 1.5em;
+}
 
-.guninfiveminutes ol {
+#guninfiveminutes .tile ol {
 	list-style-type: none;
   list-style-type: none;
 }
-.guninfiveminutes ol li {
+#guninfiveminutes .tile ol li {
 	counter-increment: step-counter;
 	position: relative;
   @apply mb-12;
 }
-.guninfiveminutes ol li::before {
-  content: counter(step-counter) '.';
+#guninfiveminutes .tile ol li::before {
+	content: counter(step-counter) '.';
   position: absolute;
 	left: -3rem;
 	top: -0.5rem;
+	display: none;
 	@apply text-4xl font-mono;
+}
+@screen lg {
+	#guninfiveminutes .tile ol li::before {
+		display: block;
+	}
+}
+#guninfiveminutes .footer .item {
+	@apply w-3/12 h-10 flex flex-row items-center;
+}
+#guninfiveminutes .footer .linktext {
+	letter-spacing: 0.05em;
+	@apply ml-3 text-xs uppercase whitespace-pre;
+}
+#guninfiveminutes .footer .inline-icon {
+	@apply text-sm;
+}
+@screen sm {
+	#guninfiveminutes .footer .item {
+		@apply w-2/9;
+	}
 }
 
 
