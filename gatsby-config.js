@@ -27,7 +27,19 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-postcss`,
+    // {
+    //   resolve: `gatsby-plugin-postcss`,
+    //   options: {
+    //     postCssPlugins: [],
+    //   },
+    // },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require('postcss-mixins'), require("tailwindcss")],
+      },
+    },
+    // `gatsby-plugin-postcss`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
@@ -39,13 +51,13 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "prismjs",
-      options: {
-        languages: ["javascript", "css", "markup"],
-        theme: "funky",
-        css: true,
-      },
-    },
+    // {
+    //   resolve: "prismjs",
+    //   options: {
+    //     languages: ["javascript", "css", "markup"],
+    //     theme: "funky",
+    //     css: true,
+    //   },
+    // },
   ],
 }
