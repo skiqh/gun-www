@@ -4,7 +4,6 @@ import { useEffect } from "react"
 // import Prism from "prismjs"
 import Hyphenated from "react-hyphen"
 
-
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
@@ -19,15 +18,17 @@ import TwitterLogo from "../images/logo/twitter.svg"
 import GithubLogo from "../images/logo/github.svg"
 import DiscordLogo from "../images/logo/discord.svg"
 
+import * as tailwindconfig from "../../tailwind.config"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faArrowRight,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faHeart } from "@fortawesome/free-solid-svg-icons"
 import VideoPanel from "../components/video-panel"
+import Dots from "../components/dots"
 
 // require("prismjs/themes/prism-solarizedlight.css")
+
+console.log("tailwindconfig", tailwindconfig)
+const themecolors = tailwindconfig.theme.extend.colors
 
 const code_sea = `const Me = gun.user()
 const Barry = gun.user(barrys_pub_key)
@@ -49,7 +50,6 @@ Barry.get('bff').put(Larry)
 Larry.path('bff.bff.name').once(name => {
   console.log(name) // -> Larry
 })`
-
 
 const code_realtime = `// on your device
 navigator.geolocation.watchPosition(position => {
@@ -85,7 +85,6 @@ const IndexPage = () => {
     // Prism.highlightAll()
   })
 
-  
   return (
     <Layout>
       <SEO title="Home" />
@@ -118,7 +117,7 @@ const IndexPage = () => {
               url="https://www.youtube.com/watch?v=ZF7a5oj77-U"
               cover={NBCcover}
               footerText="GUN author Mark Nadal on why he is building a decentralized web, and what it looks like."
-              />
+            />
           </div>
         </div>
         <div className="flex flex-col md:flex-row mb-air">
@@ -158,7 +157,7 @@ const IndexPage = () => {
       <div className="panel panel-yellow">
         <div className="tile py-air">
           <div className="boxed">
-            <h3>8 Million users and counting</h3>
+            <h3>10 Million users and counting</h3>
             <h2>
               <Hyphenated>
                 GUN is powering decentralized platforms with millions of users
@@ -227,6 +226,7 @@ const IndexPage = () => {
           <div className="order-1 md:order-3 w-full md:w-smallcol">
             <div className="panel panel-small panel-pink">
               <div className="tile code">
+                <Dots a={themecolors.blue} b={themecolors.cyan} c={themecolors.yellow} />
                 <pre className="language-js">{code_sea}</pre>
               </div>
               <div className="footer">
@@ -248,6 +248,7 @@ const IndexPage = () => {
           <div className="w-full md:w-smallcol">
             <div className="panel panel-yellow panel-small">
               <div className="tile code">
+                <Dots a={themecolors.purple} b={themecolors.pink} />
                 <pre className="language-js">{code_graph}</pre>
               </div>
               <div className="footer">
@@ -316,6 +317,7 @@ const IndexPage = () => {
           <div className="order-1 md:order-3 w-full md:w-smallcol">
             <div className="panel panel-small panel-blue">
               <div className="tile code">
+                <Dots a={themecolors.pink} />
                 <pre className="language-js">{code_realtime}</pre>
               </div>
               <div className="footer">
@@ -353,11 +355,9 @@ const IndexPage = () => {
                     </Hyphenated>
                   </p>
 
-                  <div className="panel panel-small panel-light mt-4">
+                  <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
-                      <div className="inner">
-                        <pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
-                      </div>
+                      <pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
                     </div>
                   </div>
                 </li>
@@ -372,11 +372,9 @@ const IndexPage = () => {
                       <a href="##">download it here</a>.
                     </Hyphenated>
                   </p>
-                  <div className="panel panel-small panel-light mt-4">
+                  <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
-                      <div className="inner">
-                        <pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
-                      </div>
+                      <pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
                     </div>
                   </div>
                 </li>
@@ -397,18 +395,16 @@ const IndexPage = () => {
                       consoles of two separate tabs or browsers:
                     </Hyphenated>
                   </p>
-                  <div className="panel panel-small panel-light mt-4">
+                  <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
-                      <div className="inner">
-                        <pre>{<pre>{code_browser_a}</pre>}</pre>
-                      </div>
+                      <Dots a={themecolors.blue} b={themecolors.pink} />
+                      <pre>{<pre>{code_browser_a}</pre>}</pre>
                     </div>
                   </div>
-                  <div className="panel panel-small panel-light mt-2">
+                  <div className="panel panel-small panel-white mt-2">
                     <div className="tile code">
-                      <div className="inner">
-                        <pre>{<pre>{code_browser_b}</pre>}</pre>
-                      </div>
+                      <Dots a={themecolors.blue} b={themecolors.pink} />
+                      <pre>{<pre>{code_browser_b}</pre>}</pre>
                     </div>
                   </div>
                 </li>

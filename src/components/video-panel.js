@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import ReactPlayer from "react-player"
 import Hyphenated from "react-hyphen"
 
@@ -20,6 +20,7 @@ const VideoPanel = ({
   panelClass = "panel-small",
 }) => {
 
+  const player = useRef(null)
   const [pristine, setPristine] = useState(true)
   const [playing, setPlaying] = useState(true)
   const togglePlaying = () => {
@@ -33,11 +34,21 @@ const VideoPanel = ({
   const handlePause = () => {
     setPlaying(false)
   }
+  const handleKeyDown = (evt) => {
+    const key = evt.key
+    console.log(player.current)
+    if(key === ' ') {
+      evt.preventDefault()
+      evt.stopPropagation()
+      togglePlaying()
+    }
+  }
 
   return (
     <div className={`panel ${panelClass}`}>
       <div className={`tile aspect ${aspect}`}>
         <ReactPlayer
+          ref={player}
           light={pristine && cover}
           playing={playing}
           controls
@@ -51,7 +62,7 @@ const VideoPanel = ({
       <div
         className="footer"
         onClick={togglePlaying}
-        onKeyDown={togglePlaying}
+        onKeyDown={handleKeyDown}
         role="button"
         tabIndex={0}
         style={{ cursor: "pointer" }}

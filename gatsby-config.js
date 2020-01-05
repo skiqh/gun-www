@@ -18,13 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `GUN — the database for freedom fighters`,
+        short_name: `GUN`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FF003D`,
+        theme_color: `#FF003D`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gun-black-sq.png`, // This path is relative to the root of the site.
       },
     },
     // {
@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require('postcss-mixins'), require("tailwindcss")],
+        postCssPlugins: [require("postcss-mixins"), require("tailwindcss")],
       },
     },
     // `gatsby-plugin-postcss`,

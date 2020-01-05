@@ -78,7 +78,6 @@ p+p {
 	}
 }
 
-
 pre {
 	@apply font-mono !important;
 }
@@ -101,7 +100,10 @@ pre {
 }
 .panel .tile.code {
 	align-items: flex-start;
-	@apply py-2;
+	@apply p-2;
+}
+.panel .tile.code .dots {
+	@apply mb-1;
 }
 .panel .tile {
 	display: flex;
@@ -189,12 +191,13 @@ pre, code {
 @mixin panel red, white, dark, red {}
 @mixin panel blue, white, yellow, blue {}
 @mixin panel green, white, yellow, green {}
-@mixin panel pink, white, cyan, pink {}
+@mixin panel pink, white, yellow, pink {}
 @mixin panel purple, white, yellow, purple {}
 @mixin panel dark, white, yellow, pink {}
 @mixin panel light, dark, red, red {}
 @mixin panel cyan, white, yellow, cyan {}
 @mixin panel yellow, dark, purple, purple {}
+@mixin panel white, dark, red, red {}
 
 
 svg.inline-icon {
