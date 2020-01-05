@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         light: "#F2F2F2",
         dark: "#2E2E2E",
+        white: "#FFFFFF",
 
         red: "#FF003D",
         yellow: "#FDFF14",
@@ -35,7 +36,7 @@ module.exports = {
         "8/9": "88.88888888888889%",
       },
       width: {
-        smallcol: "36%",
+        smallcol: "38%",
       },
     },
   },
