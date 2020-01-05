@@ -1,12 +1,12 @@
 import React from "react"
 import { useEffect } from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 // import Prism from "prismjs"
 import Hyphenated from "react-hyphen"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import NBCcover from "../images/cover/nbcnews.jpg"
 import Nordiccover from "../images/cover/nordicjs.jpg"
@@ -22,10 +22,10 @@ import DiscordLogo from "../images/logo/discord.svg"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  faPlay,
   faArrowRight,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons"
+import VideoPanel from "../components/video-panel"
 
 // require("prismjs/themes/prism-solarizedlight.css")
 
@@ -89,9 +89,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div class="boxed">
-        <div class="flex flex-col md:flex-row mb-air mt-air">
-          <div class="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+      <div className="boxed">
+        <div className="flex flex-col md:flex-row mb-air mt-air">
+          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
             <h2>Get ready to disrupt Big Tech</h2>
             <p>
               GUN gives you the most powerful weapons of the internet —{" "}
@@ -99,7 +99,7 @@ const IndexPage = () => {
               <a href="##">real privacy</a> — to reclaim the web and make it
               truly free and open.
             </p>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 Get up and running with GUN in five minutes or less
@@ -111,60 +111,28 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div class="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
-          <div class="order-1 md:order-3 w-full md:w-smallcol">
-            <a href="##" class="panel panel-small">
-              <div class="tile">
-                <img
-                  src={NBCcover}
-                  alt="NBC News: Mark Nadal on the next generation of the web"
-                />
-              </div>
-              <div class="footer">
-                <div class="inner">
-                  <div class="footericon">
-                    <FontAwesomeIcon icon={faPlay} />
-                  </div>
-                  <div class="ml-3">
-                    <Hyphenated>
-                      GUN author Mark Nadal on why he is building a
-                      decentralized web, and what it looks like.
-                    </Hyphenated>
-                  </div>
-                </div>
-              </div>
-            </a>
+          <div className="order-1 md:order-3 w-full md:w-smallcol">
+            <VideoPanel
+              url="https://www.youtube.com/watch?v=ZF7a5oj77-U"
+              cover={NBCcover}
+              footerText="GUN author Mark Nadal on why he is building a decentralized web, and what it looks like."
+              />
           </div>
         </div>
-        <div class="flex flex-col md:flex-row mb-air">
-          <div class="w-full md:w-smallcol">
-            <a href="##" class="panel panel-small">
-              <div class="tile">
-                <img
-                  src={Nordiccover}
-                  alt="Nordic.js presentation by Mark Nadal: The Design and Evolution of Event-Driven Databases"
-                />
-              </div>
-              <div class="footer">
-                <div class="inner">
-                  <div class="footericon">
-                    <FontAwesomeIcon icon={faPlay} />
-                  </div>
-                  <div class="ml-3">
-                    <Hyphenated>
-                      Mark Nadal at Nordic.js 2017 - The Design and Evolution of
-                      Event-Driven Databases
-                    </Hyphenated>
-                  </div>
-                </div>
-              </div>
-            </a>
+        <div className="flex flex-col md:flex-row mb-air">
+          <div className="w-full md:w-smallcol">
+            <VideoPanel
+              url="https://www.youtube.com/watch?v=5fCPRY-9hkc"
+              cover={Nordiccover}
+              footerText="Mark Nadal at Nordic.js 2017 - The Design and Evolution of Event-Driven Databases"
+            />
           </div>
 
-          <div class="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
-          <div class="w-full md:w-3/5 lg:w-1/2">
+          <div className="w-full md:w-3/5 lg:w-1/2">
             <h2>Powerful and flexible</h2>
             <p>
               <Hyphenated>
@@ -174,7 +142,7 @@ const IndexPage = () => {
                 system you want.
               </Hyphenated>
             </p>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how to add GUN to an existing React oder Svelte app
@@ -187,9 +155,9 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <div class="panel panel-yellow">
-        <div class="tile py-air">
-          <div class="boxed">
+      <div className="panel panel-yellow">
+        <div className="tile py-air">
+          <div className="boxed">
             <h3>8 Million users and counting</h3>
             <h2>
               <Hyphenated>
@@ -197,7 +165,7 @@ const IndexPage = () => {
                 and vastly different requirements on a shoestring budget.
               </Hyphenated>
             </h2>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 How HackerNoon handles 10M+ users on one free Heroku dyno
@@ -210,30 +178,30 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div class="footer">
-          <div class="inner boxed">
-            <span class="pr-16 hidden sm:block footerlead">
+        <div className="footer">
+          <div className="inner boxed">
+            <span className="pr-16 hidden sm:block footerlead">
               GUN in the news
             </span>
-            <div class="item w-3/12 sm:w-1/9 h-10">
+            <div className="item w-3/12 sm:w-1/9 h-10">
               <NBClogo />
             </div>
-            <div class="item w-3/12 sm:w-1/9 h-10">
+            <div className="item w-3/12 sm:w-1/9 h-10">
               <TClogo />
             </div>
-            <div class="item w-3/12 sm:w-1/9 h-10">
+            <div className="item w-3/12 sm:w-1/9 h-10">
               <HNlogo />
             </div>
-            <div class="item w-3/12 sm:w-1/9 h-10">
+            <div className="item w-3/12 sm:w-1/9 h-10">
               <CDlogo />
             </div>
           </div>
         </div>
       </div>
 
-      <div class="boxed">
-        <div class="flex flex-col md:flex-row mb-air mt-air">
-          <div class="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+      <div className="boxed">
+        <div className="flex flex-col md:flex-row mb-air mt-air">
+          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
             <h2>Decentralized auth built-in</h2>
             <p>
               <Hyphenated>
@@ -242,7 +210,7 @@ const IndexPage = () => {
                 other words — real privacy with no single point of failure.
               </Hyphenated>
             </p>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how to securely store and exchange user data
@@ -254,19 +222,19 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div class="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
-          <div class="order-1 md:order-3 w-full md:w-smallcol">
-            <div class="panel panel-small panel-green">
-              <div class="tile code">
-                <pre class="language-js">{code_sea}</pre>
+          <div className="order-1 md:order-3 w-full md:w-smallcol">
+            <div className="panel panel-small panel-pink">
+              <div className="tile code">
+                <pre className="language-js">{code_sea}</pre>
               </div>
-              <div class="footer">
-                <div class="inner">
-                  <div class="footericon">
+              <div className="footer">
+                <div className="inner">
+                  <div className="footericon">
                     <FontAwesomeIcon icon={faArrowRight} />
                   </div>
-                  <div class="ml-3">
+                  <div className="ml-3">
                     Read more about SEA, GUN's built-in module for Security,
                     Encryption and Authentication
                   </div>
@@ -276,18 +244,18 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div class="flex flex-col md:flex-row mb-air">
-          <div class="w-full md:w-smallcol">
-            <div class="panel panel-purple panel-small">
-              <div class="tile code">
-                <pre class="language-js">{code_graph}</pre>
+        <div className="flex flex-col md:flex-row mb-air">
+          <div className="w-full md:w-smallcol">
+            <div className="panel panel-yellow panel-small">
+              <div className="tile code">
+                <pre className="language-js">{code_graph}</pre>
               </div>
-              <div class="footer">
-                <div class="inner">
-                  <div class="footericon">
+              <div className="footer">
+                <div className="inner">
+                  <div className="footericon">
                     <FontAwesomeIcon icon={faArrowRight} />
                   </div>
-                  <div class="ml-3">
+                  <div className="ml-3">
                     Learn how to create, traverse, index and query linked data
                     in GUN
                   </div>
@@ -296,9 +264,9 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div class="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
-          <div class="w-full md:w-3/5 lg:w-1/2">
+          <div className="w-full md:w-3/5 lg:w-1/2">
             <h2>Graph data for the win</h2>
             <p>
               <Hyphenated>
@@ -308,7 +276,7 @@ const IndexPage = () => {
                 size.
               </Hyphenated>
             </p>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 Read more about the power of graph data
@@ -321,8 +289,8 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div class="flex flex-col md:flex-row mb-air mt-air">
-          <div class="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+        <div className="flex flex-col md:flex-row mb-air mt-air">
+          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
             <h2>Respond in real-time</h2>
             <p>
               <Hyphenated>
@@ -331,7 +299,7 @@ const IndexPage = () => {
                 to changes as they happen.
               </Hyphenated>
             </p>
-            <div class="links">
+            <div className="links">
               <a href="##">
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how GUN peers find and talk to each other
@@ -343,19 +311,19 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div class="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
-          <div class="order-1 md:order-3 w-full md:w-smallcol">
-            <div class="panel panel-small panel-blue">
-              <div class="tile code">
-                <pre class="language-js">{code_realtime}</pre>
+          <div className="order-1 md:order-3 w-full md:w-smallcol">
+            <div className="panel panel-small panel-blue">
+              <div className="tile code">
+                <pre className="language-js">{code_realtime}</pre>
               </div>
-              <div class="footer">
-                <div class="inner">
-                  <div class="footericon">
+              <div className="footer">
+                <div className="inner">
+                  <div className="footericon">
                     <FontAwesomeIcon icon={faArrowRight} />
                   </div>
-                  <div class="ml-3">
+                  <div className="ml-3">
                     Learn how to set up a globally distributed GUN network to
                     transfer live data around the world
                   </div>
@@ -366,10 +334,10 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div class="panel panel-cyan" id="guninfiveminutes">
-        <div class="tile py-air">
-          <div class="boxed">
-            <div class="guninfiveminutes md:w-8/12">
+      <div className="panel panel-cyan" id="guninfiveminutes">
+        <div className="tile py-air">
+          <div className="boxed">
+            <div className="guninfiveminutes md:w-8/12">
               <h2>GUN in 5 minutes</h2>
               <ol>
                 <li>
@@ -379,18 +347,19 @@ const IndexPage = () => {
                       A peer is a remote database instance that you can sync
                       your data with. You can deploy one to{" "}
                       <a href="##">heroku</a>, spin it up in{" "}
-                      <a href="##">docker</a>, or use the{" "}
-                      <a href="##">node.js API directly</a>.
+                      <a href="##">docker</a>, use the{" "}
+                      <a href="##">node.js API directly</a>, or start one with{" "}
+                      <a href="##">GUN's cli</a> like this:
                     </Hyphenated>
                   </p>
-                  <p>
-                    <Hyphenated>
-                      Assuming you have node.js and npm installed, you can just
-                      use <a href="##">GUN's command line interface</a> like
-                      this:
-                    </Hyphenated>
-                  </p>
-                  <code>npx gun-cli --host 127.0.0.1</code>
+
+                  <div className="panel panel-small panel-light mt-4">
+                    <div className="tile code">
+                      <div className="inner">
+                        <pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <li>
                   <p>
@@ -399,27 +368,26 @@ const IndexPage = () => {
                       GUN runs in <a href="##">browsers</a> (going back to IE
                       6), in <a href="##">Node.js</a>, <a href="##">Electron</a>
                       , and even <a href="##">React Native</a>. Install it from{" "}
-                      <a href="##">npm</a>, or <a href="##">download it here</a>
-                      .
+                      <a href="##">npm</a>, use a <a href="##">CDN</a>, or{" "}
+                      <a href="##">download it here</a>.
                     </Hyphenated>
                   </p>
-                  <p>
-                    <Hyphenated>
-                      To get going, just add GUN to your website from a{" "}
-                      <a href="##">CDN</a>:
-                    </Hyphenated>
-                  </p>
-                  <code>
-                    {`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
-                  </code>
+                  <div className="panel panel-small panel-light mt-4">
+                    <div className="tile code">
+                      <div className="inner">
+                        <pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <li>
                   <p>
                     <strong>Play around with your data. </strong>
                     <Hyphenated>
-                      GUN's <a href="">core API</a> is deliberately small but
+                      GUN's <a href="##">core API</a> is deliberately small but
                       powerful. For more, check out GUN's many{" "}
-                      <a href="##">useful extensions</a> or explore its <a href="##">wider ecosystem</a>
+                      <a href="##">useful extensions</a> or explore its{" "}
+                      <a href="##">wider ecosystem</a>
                     </Hyphenated>
                   </p>
                   <p>
@@ -429,8 +397,20 @@ const IndexPage = () => {
                       consoles of two separate tabs or browsers:
                     </Hyphenated>
                   </p>
-                  <pre>{code_browser_a}</pre>
-                  <pre>{code_browser_b}</pre>
+                  <div className="panel panel-small panel-light mt-4">
+                    <div className="tile code">
+                      <div className="inner">
+                        <pre>{<pre>{code_browser_a}</pre>}</pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="panel panel-small panel-light mt-2">
+                    <div className="tile code">
+                      <div className="inner">
+                        <pre>{<pre>{code_browser_b}</pre>}</pre>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ol>
               <h2>Nice, right?</h2>
@@ -441,7 +421,7 @@ const IndexPage = () => {
                   GUN!
                 </Hyphenated>
               </p>
-              <div class="links">
+              <div className="links">
                 <a href="##">
                   <FontAwesomeIcon icon={faArrowRight} />
                   Jump straight to GUN's Documentation
@@ -454,34 +434,34 @@ const IndexPage = () => {
             </div>
           </div>
         </div>
-        <div class="footer">
-          <div class="inner boxed">
-            <span class="pr-16 hidden sm:block footerlead">Join us!</span>
-            <div class="item">
+        <div className="footer">
+          <div className="inner boxed">
+            <span className="pr-16 hidden sm:block footerlead">Join us!</span>
+            <div className="item">
               <TwitterLogo />
-              <span class="linktext">Follow GUN on Twitter</span>
+              <span className="linktext">Follow GUN on Twitter</span>
             </div>
-            <div class="item">
+            <div className="item">
               <GithubLogo />
-              <span class="linktext">Star GUN on Github</span>
+              <span className="linktext">Star GUN on Github</span>
             </div>
-            <div class="item">
+            <div className="item">
               <DiscordLogo />
-              <span class="linktext">Join our Discord</span>
+              <span className="linktext">Join our Discord</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="boxed h-16"></div>
+      <div className="boxed h-16"></div>
 
-      <div class="panel panel-purple" id="panel-links">
-        <div class="tile py-air">
-          <div class="boxed">
-            <div class="flex flex-row items-start justify-between">
-              <div class="item">
+      <div className="panel panel-pink" id="panel-links">
+        <div className="tile py-air">
+          <div className="boxed">
+            <div className="flex flex-row items-start justify-between">
+              <div className="item">
                 <h2>Concepts</h2>
-                <ul class="font-mono text-dark">
+                <ul className="font-mono text-dark">
                   <li>
                     <a href="##">HAM — Conflict resolution</a>
                   </li>
@@ -508,9 +488,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div class="item">
+              <div className="item">
                 <h2>Links</h2>
-                <ul class="font-mono text-dark">
+                <ul className="font-mono text-dark">
                   <li>
                     <a href="##">FAQ</a>
                   </li>
@@ -534,9 +514,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div class="item">
+              <div className="item">
                 <h2>Explainer Videos</h2>
-                <ul class="font-mono text-dark">
+                <ul className="font-mono text-dark">
                   <li>
                     <a href="##">Chronological ordering</a>
                   </li>
@@ -557,9 +537,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div class="item">
+              <div className="item">
                 <h2>Technical Videos</h2>
-                <ul class="font-mono text-dark">
+                <ul className="font-mono text-dark">
                   <li>
                     <a href="##">Conflict resolution algorithm</a>
                   </li>
@@ -574,21 +554,21 @@ const IndexPage = () => {
             </div>
           </div>
         </div>
-        <div class="footer">
-          <div class="inner boxed">
-            <div class="footericon text-4xl">
+        <div className="footer">
+          <div className="inner boxed">
+            <div className="footericon text-4xl">
               <FontAwesomeIcon icon={faHeart} />
             </div>
-            <div class="text-xs ml-4">
+            <div className="text-xs ml-4">
               Made with love by the ERA team, and many very awesome
               contributors. <br />
               Liberally licensed under Zlib or MIT or Apache 2.0
             </div>
-            <div class="flex-grow"></div>
+            <div className="flex-grow"></div>
           </div>
         </div>
       </div>
-      <div class="boxed h-16"></div>
+      <div className="boxed h-16"></div>
     </Layout>
   )
 }

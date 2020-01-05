@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
   box-sizing: border-box;
   overflow-y: scroll;
@@ -81,6 +82,17 @@ p+p {
 pre {
 	@apply font-mono !important;
 }
+.aspect {
+	position: relative;
+}
+.aspect.aspect-640-360 {
+	padding-top: 56.25% /* Player ratio: 100 / (360 / 640) */
+}
+.aspect>* {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 
 .panel {
@@ -88,6 +100,7 @@ pre {
 	flex-direction: column;
 }
 .panel .tile.code {
+	align-items: flex-start;
 	@apply py-2;
 }
 .panel .tile {
@@ -112,7 +125,7 @@ pre {
 	justify-content: space-between;
 }
 .panel .footer {
-	@apply bg-white;
+	@apply bg-white text-dark;
 }
 .panel .inner  {
 	@apply py-6  h-32;
@@ -129,6 +142,9 @@ pre {
 
 .panel .footer .item {
 	overflow: hidden;
+}
+.panel .footer .description {
+	@apply flex-grow;
 }
 .panel .footer .item svg {
 	max-width: 100%;
@@ -152,83 +168,33 @@ pre, code {
 	@apply text-xs;
 }
 
-.guninfiveminutes pre,
-.guninfiveminutes code {
-	@apply px-3 py-2 bg-white text-dark my-4 inline-block;
-}
-
-
-.panel.panel-red .tile {
-	@apply bg-red text-white;
-}
-.panel.panel-red .footer .footerlead,
-.panel.panel-red .footer .footericon {
-	@apply text-red;
-}
-
-.panel.panel-green .tile {
-	@apply bg-green text-white;
-}
-.panel.panel-green .footer .footerlead,
-.panel.panel-green .footer .footericon {
-	@apply text-green;
-}
-
-
-
-.panel.panel-blue .tile {
-	@apply bg-blue text-white;
-}
-.panel.panel-blue .footer .footerlead,
-.panel.panel-blue .footer .footericon {
-	@apply text-blue;
-}
-
-.panel.panel-purple .tile {
-	@apply bg-purple text-white;
-}
-.panel.panel-purple .footer .footerlead,
-.panel.panel-purple .footer .footericon {
-	@apply text-purple;
-}
-
-.panel.panel-violet .tile {
-	@apply bg-violet text-white;
-}
-.panel.panel-violet .footer .footerlead,
-.panel.panel-violet .footer .footericon {
-	@apply text-violet;
-}
-
-.panel.panel-cyan .links .svg-inline--fa {
-	@apply text-yellow
-}
-.panel.panel-cyan .tile a:hover {
-	@apply text-yellow;
-}
-.panel.panel-cyan .tile {
-	@apply bg-cyan text-white;
-}
-.panel.panel-cyan .footer .footerlead,
-.panel.panel-cyan .footer .footericon {
-	@apply text-cyan;
-}
 
 
 
 
+@define-mixin panel $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
+	.panel.panel-$(tilecolor) .tile a:hover, 
+	.panel.panel-$(tilecolor) .links .svg-inline--fa {
+		@apply text-$arrowcolor;
+	}
+	.panel.panel-$(tilecolor)>.tile {
+		@apply bg-$(tilecolor) text-$(textcolor);
+	}
+	.panel.panel-$(tilecolor) .footer .footerlead,
+	.panel.panel-$(tilecolor) .footer .footericon {
+		@apply text-$(footerleadcolor);
+	}
+}
 
-
-.panel.panel-yellow .tile {
-	@apply bg-yellow text-dark;
-}
-.panel.panel-yellow .links .svg-inline--fa {
-	@apply text-violet;
-}
-.panel.panel-yellow .footer .footerlead, 
-.panel.panel-yellow .footer .footericon {
-	@apply text-violet
-}
+@mixin panel red, white, dark, red {}
+@mixin panel blue, white, yellow, blue {}
+@mixin panel green, white, yellow, green {}
+@mixin panel pink, white, cyan, pink {}
+@mixin panel purple, white, yellow, purple {}
+@mixin panel dark, white, yellow, pink {}
+@mixin panel light, dark, red, red {}
+@mixin panel cyan, white, yellow, cyan {}
+@mixin panel yellow, dark, purple, purple {}
 
 
 svg.inline-icon {

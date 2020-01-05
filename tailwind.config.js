@@ -18,8 +18,8 @@ module.exports = {
         green: "#01DC7D",
         blue: "#0019FF",
         cyan: "#00D6F7",
-        purple: "#F600A4",
-        violet: "#8800FF",
+        pink: "#F600A4",
+        purple: "#8800FF",
       },
       spacing: {
         960: "960px",
