@@ -30,16 +30,9 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-.boxed {
-	@apply mx-auto w-full px-6;
-}
-@screen lg {
-	.boxed {
-		@apply w-960 px-0;
-	}
-}
 a, button {
 	cursor: pointer;
+	text-align: left;
 }
 header a,
 header button {
@@ -104,19 +97,25 @@ pre {
 	display: flex;
 	flex-direction: column;
 }
+.panel .tile.code .buttons {
+	float: right;
+	@apply ml-2 mb-1;
+}
+
 .panel .tile.code {
-	align-items: flex-start;
+	display: block;
+	position: relative;
 	@apply p-2;
 }
 .panel .tile.code .dots {
 	@apply mb-1;
 }
+.panel .tile.code pre {
+	white-space: pre-wrap;
+}
 .panel .tile {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	align-content: center;
-	justify-items: center;
 	flex: 1;
 }
 .panel .tile .inner {
@@ -146,6 +145,10 @@ pre {
 }
 .panel.panel-small .footer  {
 	@apply py-1 px-2;
+}
+
+.panel.panel-small .footer .inner {
+	justify-content: flex-start;
 }
 
 .panel .footer .item {
@@ -213,12 +216,11 @@ svg.inline-icon {
 
 #guninfiveminutes .tile ol {
 	list-style-type: none;
-  list-style-type: none;
 }
 #guninfiveminutes .tile ol li {
 	counter-increment: step-counter;
 	position: relative;
-  @apply mb-12;
+	@apply mb-12;
 }
 #guninfiveminutes .tile ol li::before {
 	content: counter(step-counter) '.';
@@ -228,25 +230,17 @@ svg.inline-icon {
 	display: none;
 	@apply text-4xl font-mono;
 }
-@screen lg {
+@screen md {
 	#guninfiveminutes .tile ol li::before {
 		display: block;
 	}
 }
 #guninfiveminutes .footer .item {
-	@apply w-3/12 h-10 flex flex-row items-center;
-}
-#guninfiveminutes .footer .linktext {
 	letter-spacing: 0.05em;
-	@apply ml-3 text-xs uppercase whitespace-pre;
+	@apply flex flex-row items-center uppercase whitespace-pre;
 }
 #guninfiveminutes .footer .inline-icon {
-	@apply text-sm;
-}
-@screen sm {
-	#guninfiveminutes .footer .item {
-		@apply w-2/9;
-	}
+	@apply mr-3;
 }
 
 

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react"
 // import { Link } from "gatsby"
 // import Prism from "prismjs"
 import Hyphenated from "react-hyphen"
+import { CopyToClipboard } from "react-copy-to-clipboard"
 
 import scrollTo from "gatsby-plugin-smoothscroll"
 
@@ -14,7 +15,7 @@ import NBCcover from "../images/cover/nbcnews.jpg"
 import Nordiccover from "../images/cover/nordicjs.jpg"
 
 import NBClogo from "../images/logo/nbc.svg"
-import HackerNewsLogo from "../images/logo/hackernews.svg"
+// import HackerNewsLogo from "../images/logo/hackernews.svg"
 import TechCrunchLogo from "../images/logo/techcrunch.svg"
 import CoinDeskLogo from "../images/logo/coindesk.svg"
 import TwitterLogo from "../images/logo/twitter.svg"
@@ -29,13 +30,16 @@ import ChangelogLogo from "../images/logo/changelog.svg"
 import * as tailwindconfig from "../../tailwind.config"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faHeart } from "@fortawesome/free-solid-svg-icons"
+import {
+  faArrowRight,
+  faHeart,
+  faCopy,
+} from "@fortawesome/free-solid-svg-icons"
 import VideoPanel from "../components/video-panel"
 import Dots from "../components/dots"
 
 // require("prismjs/themes/prism-solarizedlight.css")
 
-console.log("tailwindconfig", tailwindconfig)
 const themecolors = tailwindconfig.theme.extend.colors
 
 const code_sea = `const Me = gun.user()
@@ -142,7 +146,7 @@ const IndexPage = () => {
   //         window.scroll({ x: 0, y: hash.y })
   //     }
   // }
-  window.history.scrollRestoration = "manual"
+  // window.history.scrollRestoration = "manual"
 
   return (
     <Layout>
@@ -150,7 +154,7 @@ const IndexPage = () => {
       <div className="panel panel-red panel-full-height">
         <div className="tile">
           <Header />
-          <div className="inner boxed">
+          <div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
             <GUNlogo style={{ maxWidth: "20rem", minHeight: "10rem" }} alt="" />
             <h2 className="mt-12 text-4xl">
               The database for <br />
@@ -168,21 +172,21 @@ const IndexPage = () => {
           </div>
         </div>
         <div className="footer">
-          <div className="inner boxed">
+          <div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
             <span className="pr-16 hidden sm:block footerlead">Used by</span>
             <a
               href="https://www.hackernoon.com/"
-              className="item w-3/12 sm:w-2/12"
               target="_blank"
               rel="noopener noreferrer"
+              className="item w-3/12 sm:w-2/12"
             >
               <HackerNoonLogo />
             </a>
             <a
               href="https://archive.org/"
-              className="item w-3/12 sm:w-2/12"
               target="_blank"
               rel="noopener noreferrer"
+              className="item w-3/12 sm:w-2/12"
             >
               <InternetArchiveLogo />
             </a>
@@ -192,9 +196,9 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <div className="boxed">
-        <div className="flex flex-col md:flex-row mb-air mt-air">
-          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+      <div className="lg:w-box lg:mx-auto px-6 lg:px-0">
+        <div className="flex flex-col lg:flex-row my-air md:items-center lg:items-start">
+          <div className="order-3 lg:order-1 w-full md:w-8/12 lg:w-1/2">
             <h2>Get ready to disrupt Big Tech</h2>
             <p>
               GUN gives you the most powerful weapons of the internet —{" "}
@@ -223,9 +227,9 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 lg:h-auto flex-grow-0 lg:flex-grow"></div>
 
-          <div className="order-1 md:order-3 w-full md:w-smallcol">
+          <div className="order-1 lg:order-3 w-full md:w-8/12 lg:w-smallcol">
             <VideoPanel
               ref={dweb}
               url="https://www.youtube.com/watch?v=ZF7a5oj77-U"
@@ -234,8 +238,8 @@ const IndexPage = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row mb-air">
-          <div className="w-full md:w-smallcol">
+        <div className="flex flex-col lg:flex-row mb-air md:items-center lg:items-start">
+          <div className="w-full md:w-8/12 lg:w-smallcol">
             <VideoPanel
               url="https://www.youtube.com/watch?v=5fCPRY-9hkc"
               cover={Nordiccover}
@@ -243,9 +247,9 @@ const IndexPage = () => {
             />
           </div>
 
-          <div className="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="h-12 lg:h-auto flex-grow-0 lg:flex-grow"></div>
 
-          <div className="w-full md:w-3/5 lg:w-1/2">
+          <div className="w-full md:w-8/12 lg:w-1/2">
             <h2>Powerful and flexible</h2>
             <p>
               <Hyphenated>
@@ -299,7 +303,7 @@ const IndexPage = () => {
       </div>
       <div className="panel panel-yellow" id="decentralization">
         <div className="tile py-air">
-          <div className="boxed">
+          <div className="lg:w-box lg:mx-auto px-6 lg:px-0">
             <h3>10 Million users and counting</h3>
             <h2>
               <Hyphenated>
@@ -321,7 +325,7 @@ const IndexPage = () => {
         </div>
 
         <div className="footer">
-          <div className="inner boxed">
+          <div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
             <span className="pr-16 hidden sm:block footerlead">
               GUN in the news
             </span>
@@ -329,7 +333,7 @@ const IndexPage = () => {
               href="https://www.nbcnews.com/video/building-a-new-internet-the-bold-plan-to-decentralize-the-web-63742021851"
               target="_blank"
               rel="noopener noreferrer"
-              className="item w-3/12 sm:w-1/9 h-10"
+              className="item w-2/12 h-6 sm:w-1/9 sm:h-10"
             >
               <NBClogo />
             </a>
@@ -337,7 +341,7 @@ const IndexPage = () => {
               href="https://techcrunch.com/2018/05/23/gun-raises-more-than-1-5m-for-its-decentralized-database-system/"
               target="_blank"
               rel="noopener noreferrer"
-              className="item w-3/12 sm:w-1/9 h-10"
+              className="item w-2/12 h-6 sm:w-1/9 sm:h-10"
             >
               <TechCrunchLogo />
             </a>
@@ -345,7 +349,7 @@ const IndexPage = () => {
               href="https://changelog.com/podcast/236"
               target="_blank"
               rel="noopener noreferrer"
-              className="item w-3/12 sm:w-1/9 h-10"
+              className="item w-4/12 h-6 sm:w-1/9 sm:h-10"
             >
               <ChangelogLogo />
             </a>
@@ -353,7 +357,7 @@ const IndexPage = () => {
               href="https://www.coindesk.com/bitcoins-second-developer-returning-crypto"
               target="_blank"
               rel="noopener noreferrer"
-              className="item w-3/12 sm:w-1/9 h-10"
+              className="item w-4/12 h-4 sm:w-1/9 sm:h-10"
             >
               <CoinDeskLogo />
             </a>
@@ -361,9 +365,9 @@ const IndexPage = () => {
         </div>
       </div>
 
-      <div className="boxed" id="privacy">
-        <div className="flex flex-col md:flex-row mb-air mt-air">
-          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+      <div className="lg:w-box lg:mx-auto px-6 lg:px-0" id="privacy">
+        <div className="flex flex-col lg:flex-row my-air md:items-center lg:items-start">
+          <div className="order-3 lg:order-1 w-full md:w-8/12 lg:w-1/2">
             <h2>Decentralized auth built-in</h2>
             <p>
               <Hyphenated>
@@ -400,9 +404,9 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 lg:h-auto flex-grow-0 lg:flex-grow"></div>
 
-          <div className="order-1 md:order-3 w-full md:w-smallcol">
+          <div className="order-1 lg:order-3 w-full md:w-8/12 lg:w-smallcol">
             <a
               href="https://gun.eco/docs/SEA"
               target="_blank"
@@ -432,8 +436,8 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row mb-air">
-          <div className="w-full md:w-smallcol">
+        <div className="flex flex-col lg:flex-row mb-air md:items-center lg:items-start">
+          <div className="w-full md:w-8/12 lg:w-smallcol">
             <a
               href="https://gun.eco/docs/Graph-Guide"
               target="_blank"
@@ -458,9 +462,9 @@ const IndexPage = () => {
             </a>
           </div>
 
-          <div className="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="h-12 lg:h-auto flex-grow-0 lg:flex-grow"></div>
 
-          <div className="w-full md:w-3/5 lg:w-1/2">
+          <div className="w-full md:w-8/12 lg:w-1/2">
             <h2>Graph data for the win</h2>
             <p>
               <Hyphenated>
@@ -505,8 +509,8 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row mb-air mt-air">
-          <div className="order-3 md:order-1 w-full md:w-3/5 lg:w-1/2">
+        <div className="flex flex-col lg:flex-row my-air md:items-center lg:items-start">
+          <div className="order-3 lg:order-1 w-full md:w-8/12 lg:w-1/2">
             <h2>Respond in real-time</h2>
             <p>
               <Hyphenated>
@@ -535,9 +539,9 @@ const IndexPage = () => {
             </div>
           </div>
 
-          <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
+          <div className="order-2 h-12 lg:h-auto flex-grow-0 lg:flex-grow"></div>
 
-          <div className="order-1 md:order-3 w-full md:w-smallcol">
+          <div className="order-1 lg:order-3 w-full md:w-8/12 lg:w-smallcol">
             <a
               href="https://github.com/skiqh/gun-cli#example-creating-a-redundant-mesh-network"
               target="_blank"
@@ -565,9 +569,9 @@ const IndexPage = () => {
       </div>
 
       <div className="panel panel-cyan" id="guninfiveminutes">
-        <div className="tile py-air">
-          <div className="boxed">
-            <div className="md:w-8/12">
+        <div className="tile py-air flex-col md:items-center lg:items-start">
+          <div className="px-6 lg:px-0 lg:w-box lg:mx-auto">
+            <div className="md:w-8/12 md:mx-auto lg:mx-0">
               <h2>GUN in 5 minutes</h2>
               <ol>
                 <li>
@@ -613,6 +617,18 @@ const IndexPage = () => {
 
                   <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
+                      <div className="buttons">
+                        <CopyToClipboard
+                          onCopy={() => {
+                            console.log("copied")
+                          }}
+                          text={`npx gun-cli --host 127.0.0.1`}
+                        >
+                          <button className="text-pink">
+                            <FontAwesomeIcon icon={faCopy} />
+                          </button>
+                        </CopyToClipboard>
+                      </div>
                       <pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
                     </div>
                   </div>
@@ -682,6 +698,18 @@ const IndexPage = () => {
                   </p>
                   <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
+                      <div className="buttons">
+                        <CopyToClipboard
+                          onCopy={() => {
+                            console.log("copied")
+                          }}
+                          text={`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
+                        >
+                          <button className="text-pink">
+                            <FontAwesomeIcon icon={faCopy} />
+                          </button>
+                        </CopyToClipboard>
+                      </div>
                       <pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
                     </div>
                   </div>
@@ -726,14 +754,46 @@ const IndexPage = () => {
                   </p>
                   <div className="panel panel-small panel-white mt-4">
                     <div className="tile code">
-                      <Dots a={themecolors.blue} b={themecolors.pink} />
-                      <pre>{<pre>{code_browser_a}</pre>}</pre>
+                      <div className="buttons">
+                        <CopyToClipboard
+                          onCopy={() => {
+                            console.log("copied")
+                          }}
+                          text={code_browser_a}
+                        >
+                          <button className="text-pink">
+                            <FontAwesomeIcon icon={faCopy} />
+                          </button>
+                        </CopyToClipboard>
+                      </div>
+                      <Dots
+                        a={themecolors.blue}
+                        b={themecolors.pink}
+                        c={themecolors.orange}
+                      />
+                      <pre>{code_browser_a}</pre>
                     </div>
                   </div>
                   <div className="panel panel-small panel-white mt-2">
                     <div className="tile code">
-                      <Dots a={themecolors.blue} b={themecolors.pink} />
-                      <pre>{<pre>{code_browser_b}</pre>}</pre>
+                      <div className="buttons">
+                        <CopyToClipboard
+                          onCopy={() => {
+                            console.log("copied")
+                          }}
+                          text={code_browser_b}
+                        >
+                          <button className="text-pink">
+                            <FontAwesomeIcon icon={faCopy} />
+                          </button>
+                        </CopyToClipboard>
+                      </div>
+                      <Dots
+                        a={themecolors.blue}
+                        b={themecolors.pink}
+                        c={themecolors.orange}
+                      />
+                      <pre>{code_browser_b}</pre>
                     </div>
                   </div>
                 </li>
@@ -764,8 +824,8 @@ const IndexPage = () => {
           </div>
         </div>
         <div className="footer">
-          <div className="inner boxed">
-            <span className="pr-16 hidden sm:block footerlead">Join us!</span>
+          <div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
+            <span className="pr-16 hidden md:block footerlead">Join us!</span>
             <a
               href="https://twitter.com/databasegun"
               target="_blank"
@@ -773,7 +833,9 @@ const IndexPage = () => {
               className="item"
             >
               <TwitterLogo />
-              <span className="linktext">Follow GUN on Twitter</span>
+              <span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
+                Follow GUN on Twitter
+              </span>
             </a>
             <a
               href="https://github.com/amark/gun"
@@ -782,7 +844,9 @@ const IndexPage = () => {
               className="item"
             >
               <GithubLogo />
-              <span className="linktext">Star GUN on Github</span>
+              <span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
+                Star GUN on Github
+              </span>
             </a>
             <a
               href="https://discordapp.com/channels/612645357850984470/612645357850984473"
@@ -791,21 +855,22 @@ const IndexPage = () => {
               className="item"
             >
               <DiscordLogo />
-              <span className="linktext">Join our Discord</span>
+              <span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
+                Join our Discord
+              </span>
             </a>
           </div>
         </div>
       </div>
 
-      <div className="boxed h-16"></div>
+      <div className="lg:w-box lg:mx-auto px-6 lg:px-0 h-16"></div>
 
       <div className="panel panel-pink" id="panel-links">
         <div className="tile py-air">
-          <div className="boxed">
-            <div className="flex flex-row items-start justify-between">
-              <div className="item">
-                <h2>Concepts</h2>
-                <ul className="font-mono text-dark">
+          <div className="flex flex-col md:flex-row items-start justify-between lg:w-box lg:mx-auto px-6 lg:px-0">
+              <div className="item mb-6 md:mb-0">
+                <h2 className="mb-1 md:mb-4 text-sm md:text-lg">Concepts</h2>
+                <ul className="font-mono text-dark text-sm">
                   <li>
                     <a
                       href="https://gun.eco/docs/Hypothetical-Amnesia-Machine"
@@ -880,9 +945,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="item">
-                <h2>Links</h2>
-                <ul className="font-mono text-dark">
+              <div className="item mb-6 md:mb-0">
+                <h2 className="mb-1 md:mb-4 text-sm md:text-lg">Links</h2>
+                <ul className="font-mono text-dark text-sm">
                   <li>
                     <a
                       href="https://gun.eco/docs/FAQ"
@@ -948,9 +1013,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="item">
-                <h2>Explainer Videos</h2>
-                <ul className="font-mono text-dark">
+              <div className="item mb-6 md:mb-0">
+                <h2 className="mb-1 md:mb-4 text-sm md:text-lg">Explainer Videos</h2>
+                <ul className="font-mono text-dark text-sm">
                   <li>
                     <a
                       href="https://www.youtube.com/watch?v=UBnkhpcLQuM"
@@ -1007,9 +1072,9 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-              <div className="item">
-                <h2>Technical Videos</h2>
-                <ul className="font-mono text-dark">
+              <div className="item ">
+                <h2 className="mb-1 sm:mb-4 text-sm md:text-lg">Technical Videos</h2>
+                <ul className="font-mono text-dark text-sm">
                   <li>
                     <a
                       href="https://www.youtube.com/watch?v=neqz5t4FSJI"
@@ -1039,11 +1104,10 @@ const IndexPage = () => {
                   </li>
                 </ul>
               </div>
-            </div>
           </div>
         </div>
         <div className="footer">
-          <div className="inner boxed">
+          <div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
             <div className="footericon text-4xl">
               <FontAwesomeIcon icon={faHeart} />
             </div>
@@ -1056,7 +1120,8 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <div className="boxed h-16"></div>
+
+      <div className="lg:w-box lg:mx-auto px-6 lg:px-0 h-16"></div>
     </Layout>
   )
 }
