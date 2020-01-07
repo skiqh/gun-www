@@ -24,6 +24,7 @@ import GUNlogo from "../images/logo/gun.svg"
 import HackerNoonLogo from "../images/logo/hackernoon.svg"
 import InternetArchiveLogo from "../images/logo/internetarchive.svg"
 import RoyalNetherlandsNavyLogo from "../images/logo/royalnetherlandsnavy.svg"
+import ChangelogLogo from "../images/logo/changelog.svg"
 
 import * as tailwindconfig from "../../tailwind.config"
 
@@ -249,17 +250,46 @@ const IndexPage = () => {
             <p>
               <Hyphenated>
                 GUN is a database engine that runs everywhere JavaScript does —{" "}
-                <a href="##">browsers</a>, <a href="##">mobile devices</a> and{" "}
-                <a href="##">servers</a>, allowing you to build exactly the data
-                system you want.
+                <a
+                  href="https://gun.eco/docs/Installation#browser"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  browsers
+                </a>
+                ,{" "}
+                <a
+                  href="https://gun.eco/docs/React-Native"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  mobile devices
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://gun.eco/docs/Installation#server"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  servers
+                </a>
+                , allowing you to build exactly the data system you want.
               </Hyphenated>
             </p>
             <div className="links">
-              <a href="##">
+              <a
+                href="https://gun.eco/docs/Awesome-GUN#framework-integrations"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how to add GUN to an existing React oder Svelte app
               </a>
-              <a href="##">
+              <a
+                href="https://github.com/skiqh/gun-cli#example-creating-a-redundant-mesh-network"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Build a distributed &amp; fault tolerant data delivery system
               </a>
@@ -295,18 +325,38 @@ const IndexPage = () => {
             <span className="pr-16 hidden sm:block footerlead">
               GUN in the news
             </span>
-            <div className="item w-3/12 sm:w-1/9 h-10">
+            <a
+              href="https://www.nbcnews.com/video/building-a-new-internet-the-bold-plan-to-decentralize-the-web-63742021851"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="item w-3/12 sm:w-1/9 h-10"
+            >
               <NBClogo />
-            </div>
-            <div className="item w-3/12 sm:w-1/9 h-10">
+            </a>
+            <a
+              href="https://techcrunch.com/2018/05/23/gun-raises-more-than-1-5m-for-its-decentralized-database-system/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="item w-3/12 sm:w-1/9 h-10"
+            >
               <TechCrunchLogo />
-            </div>
-            <div className="item w-3/12 sm:w-1/9 h-10">
-              <HackerNewsLogo />
-            </div>
-            <div className="item w-3/12 sm:w-1/9 h-10">
+            </a>
+            <a
+              href="https://changelog.com/podcast/236"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="item w-3/12 sm:w-1/9 h-10"
+            >
+              <ChangelogLogo />
+            </a>
+            <a
+              href="https://www.coindesk.com/bitcoins-second-developer-returning-crypto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="item w-3/12 sm:w-1/9 h-10"
+            >
               <CoinDeskLogo />
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -317,17 +367,33 @@ const IndexPage = () => {
             <h2>Decentralized auth built-in</h2>
             <p>
               <Hyphenated>
-                GUN's <a href="##">security module</a> is built on strong
-                encryption standards and works completely decentralized. In
-                other words — real privacy with no single point of failure.
+                GUN's{" "}
+                <a
+                  href="https://gun.eco/docs/SEA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  security module
+                </a>{" "}
+                is built on strong encryption standards and works completely
+                decentralized. In other words — real privacy with no single
+                point of failure.
               </Hyphenated>
             </p>
             <div className="links">
-              <a href="##">
+              <a
+                href="https://gun.eco/docs/User"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how to securely store and exchange user data
               </a>
-              <a href="##">
+              <a
+                href="https://gun.eco/converse.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Build a multi-user chat with e2e encryption
               </a>
@@ -337,7 +403,12 @@ const IndexPage = () => {
           <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
           <div className="order-1 md:order-3 w-full md:w-smallcol">
-            <div className="panel panel-small panel-pink">
+            <a
+              href="https://gun.eco/docs/SEA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="panel panel-small panel-pink"
+            >
               <div className="tile code">
                 <Dots
                   a={themecolors.blue}
@@ -357,13 +428,18 @@ const IndexPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row mb-air">
           <div className="w-full md:w-smallcol">
-            <div className="panel panel-yellow panel-small">
+            <a
+              href="https://gun.eco/docs/Graph-Guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="panel panel-yellow panel-small"
+            >
               <div className="tile code">
                 <Dots a={themecolors.purple} b={themecolors.pink} />
                 <pre className="language-js">{code_graph}</pre>
@@ -379,7 +455,7 @@ const IndexPage = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div className="h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
@@ -388,18 +464,40 @@ const IndexPage = () => {
             <h2>Graph data for the win</h2>
             <p>
               <Hyphenated>
-                GUN's <a href="##">graph data model</a> allows you to use
-                intuitive data structures and queries, while still being capable
-                of doing <a href="##">20M+ API ops/sec</a> in just ~9KB gzipped
-                size.
+                GUN's{" "}
+                <a
+                  href="https://gun.eco/docs/Graph-Guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  graph data model
+                </a>{" "}
+                allows you to use intuitive data structures and queries, while
+                still being capable of doing{" "}
+                <a
+                  href="https://gun.eco/docs/Performance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  20M+ API ops/sec
+                </a>{" "}
+                in just ~9KB gzipped size.
               </Hyphenated>
             </p>
             <div className="links">
-              <a href="##">
+              <a
+                href="https://gun.eco/docs/Simple-introduction-to-graph-data-structures"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
-                Read more about the power of graph data
+                Read more about GUN's graph data structure
               </a>
-              <a href="##">
+              <a
+                href="https://github.com/brysgo/graphql-gun"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Query a GUN database with GraphQL
               </a>
@@ -418,11 +516,19 @@ const IndexPage = () => {
               </Hyphenated>
             </p>
             <div className="links">
-              <a href="##">
+              <a
+                href="https://gun.eco/docs/Service-Discovery"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Learn how GUN peers find and talk to each other
               </a>
-              <a href="##">
+              <a
+                href="https://www.youtube.com/watch?v=5fCPRY-9hkc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faArrowRight} />
                 Watch GUN's author implement its sync algorithm from scratch
               </a>
@@ -432,7 +538,12 @@ const IndexPage = () => {
           <div className="order-2 h-12 md:h-auto flex-grow-0 md:flex-grow"></div>
 
           <div className="order-1 md:order-3 w-full md:w-smallcol">
-            <div className="panel panel-small panel-blue">
+            <a
+              href="https://github.com/skiqh/gun-cli#example-creating-a-redundant-mesh-network"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="panel panel-small panel-blue"
+            >
               <div className="tile code">
                 <Dots a={themecolors.pink} />
                 <pre className="language-js">{code_realtime}</pre>
@@ -443,12 +554,12 @@ const IndexPage = () => {
                     <FontAwesomeIcon icon={faArrowRight} />
                   </div>
                   <div className="ml-3">
-                    Learn how to set up a globally distributed GUN network to
-                    transfer live data around the world
+                    Learn how to set up a fault-tolerant distributed GUN network
+                    to transfer live data around the world
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -481,7 +592,11 @@ const IndexPage = () => {
                         docker
                       </a>
                       , use the{" "}
-                      <a href="/docs" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href="https://gun.eco/docs/Installation#server"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         node.js API directly
                       </a>
                       , or start one with{" "}
@@ -632,13 +747,17 @@ const IndexPage = () => {
                 </Hyphenated>
               </p>
               <div className="links">
-                <a href="##" target="_blank" rel="noopener noreferrer">
+                <a href="/docs" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faArrowRight} />
                   Jump straight to GUN's Documentation
                 </a>
-                <a href="##" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://gun.eco/docs/Todo-Dapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FontAwesomeIcon icon={faArrowRight} />
-                  Tutorial: Create a multi-user public todo app
+                  Tutorial: Create a distributed multi-user todo app
                 </a>
               </div>
             </div>
@@ -715,7 +834,11 @@ const IndexPage = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://gun.eco/docs/DAM"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       DAM — Mesh netwoking
                     </a>
                   </li>
@@ -729,7 +852,11 @@ const IndexPage = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://gun.eco/docs/DHT"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       DHT — Finding content
                     </a>
                   </li>
@@ -744,7 +871,7 @@ const IndexPage = () => {
                   </li>
                   <li>
                     <a
-                      href="https://gun.eco/docs/DHT"
+                      href="https://github.com/amark/gun/wiki/DAP-Theorem"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -825,32 +952,56 @@ const IndexPage = () => {
                 <h2>Explainer Videos</h2>
                 <ul className="font-mono text-dark">
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=UBnkhpcLQuM"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Chronological ordering
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=jXni0KDQNsc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Proof of work
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=tg06mdcGs5k"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Digital signature
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=ccKThyaDR30"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Data security
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=_RDC37hrTo8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Crypto
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/channel/UCQAtpf-zi9Pp4__2nToOM8g"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       more ...
                     </a>
                   </li>
@@ -860,17 +1011,29 @@ const IndexPage = () => {
                 <h2>Technical Videos</h2>
                 <ul className="font-mono text-dark">
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=neqz5t4FSJI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Conflict resolution algorithm
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=ik_dqXBMBHw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       User accounts with SEA
                     </a>
                   </li>
                   <li>
-                    <a href="##" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://www.youtube.com/watch?v=fG9Xjt3mZ5U&t=11s"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Implementing lists in GUN
                     </a>
                   </li>
