@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `GUN — the database for freedom fighters`,
+    description: `GUN is a distributed, offline-first, realtime graph database engine with built-in encryption.`,
+    author: `@skiqh`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#FF003D`,
         theme_color: `#FF003D`,
         display: `minimal-ui`,
-        icon: `src/images/gun-black-sq.png`, // This path is relative to the root of the site.
+        icon: `src/images/gun-white-red-sq.png`, // This path is relative to the root of the site.
       },
     },
     // {
@@ -51,6 +51,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-smoothscroll`,
     // {
     //   resolve: "prismjs",
     //   options: {

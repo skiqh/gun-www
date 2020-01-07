@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React from "react"
 import ReactPlayer from "react-player"
 import Hyphenated from "react-hyphen"
 
@@ -10,7 +10,98 @@ import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons"
 //     super(props)
 //   }
 // }
+class VideoPanel extends React.Component {
+  constructor(props) {
+    super(props)
+    const {
+      url,
+      cover,
+      footerText,
+      icon = faPlay,
+      aspect = "aspect-640-360",
+      panelClass = "panel-small",
+    } = props
 
+    this.player = React.createRef()
+    // const player = useRef(null)
+    // const [pristine, setPristine] = useState(true)
+    // const [playing, setPlaying] = useState(true)
+    this.state =
+      { url
+      , cover
+      , footerText
+      , icon
+      , aspect
+      , panelClass
+
+      , pristine: true
+      , playing: true
+      }
+  }
+
+  play = () => {
+    this.setState({pristine: false, playing: true})
+  }
+
+  togglePlaying = () => {
+    this.setState({pristine: false, playing: this.state.pristine || !this.state.playing})
+  }
+  handlePlay = () => {
+    this.setState({pristine: false, playing: true})
+  }
+  handlePause = () => {
+    this.setState({playing: false})
+  }
+  handleKeyDown = (evt) => {
+    const key = evt.key
+    if(key === ' ') {
+      evt.preventDefault()
+      evt.stopPropagation()
+      this.togglePlaying()
+    }
+  }
+  
+  render() {
+    return (
+      <div className={`panel ${this.state.panelClass}`}>
+        <div className={`tile aspect ${this.state.aspect}`}>
+          <ReactPlayer
+            ref={this.player}
+            light={this.state.pristine && this.state.cover}
+            playing={this.state.playing}
+            controls
+            url={this.state.url}
+            width="100%"
+            height="100%"
+            onPlay={this.handlePlay}
+            onPause={this.handlePause}
+          />
+        </div>
+        <div
+          className="footer"
+          onClick={this.togglePlaying}
+          onKeyDown={this.handleKeyDown}
+          role="button"
+          tabIndex={0}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="inner">
+            <div className="footericon">
+              <FontAwesomeIcon
+                icon={(this.state.pristine && this.state.icon) || (!this.state.playing && this.state.icon) || faPause}
+              />
+            </div>
+            <div className="ml-3">
+              <Hyphenated>{this.state.footerText}</Hyphenated>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+/*
 const VideoPanel = ({
   url,
   cover,
@@ -81,6 +172,8 @@ const VideoPanel = ({
     </div>
   )
 }
+*/
+
 /* const YoutubePreview = ({image, playerUrl, alt}) => {
   const [clicked, setClicked] = useState(false)
   
