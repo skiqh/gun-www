@@ -6,7 +6,7 @@ import TwitterLogo from "../images/logo/twitter.svg"
 import GithubLogo from "../images/logo/github.svg"
 
 const Header = ({ siteTitle }) => (
-  <header className="boxed py-4">
+  <header className="lg:w-box lg:mx-auto px-6 lg:px-0 py-4">
     <div className="flex flex-row w-full text-dark font-mono">
       <a href="https://era.eco" target="_blank" rel="noopener noreferrer">
         <ERAlogo />

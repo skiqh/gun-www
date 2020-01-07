@@ -21,9 +21,10 @@ module.exports = {
         cyan: "#00D6F7",
         pink: "#F600A4",
         purple: "#8800FF",
+        orange: "#FFB706",
       },
       spacing: {
-        960: "960px",
+        box: "960px",
         air: "9rem",
         halfair: "4.5rem",
         "1/9": "11.11111111111111%",
