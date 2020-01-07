@@ -38,8 +38,11 @@ body {
 		@apply w-960 px-0;
 	}
 }
-
-header a {
+a, button {
+	cursor: pointer;
+}
+header a,
+header button {
 	@apply text-dark;
 }
 h2,
@@ -48,8 +51,10 @@ p {
 	letter-spacing: 0.03em;
 	@apply font-sans;
 }
-p a {
+p a,
+p button {
 	border-bottom: 0.01em solid;
+	border-radius: 0;
 }
 p a:hover {
 	@apply text-red;
@@ -66,7 +71,8 @@ p+p {
 .links .svg-inline--fa {
 	@apply mr-2 text-red text-xs;
 }
-.links a {
+.links a,
+.links button {
 	@apply font-mono mb-4;
 	line-height: 1;
 	display: block;
@@ -156,7 +162,7 @@ pre {
 	@apply font-mono text-xxs;
 }
 .footerlead {
-	@apply text-red;
+	@apply text-red uppercase;
 }
 .panel .footer .footericon {
 	@apply p-2 text-red;

@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 // import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
@@ -17,12 +16,7 @@ import "./layout.css"
 config.autoAddCss = false
 
 const Layout = ({ children }) => {
-  return (
-    <>
-      <Header />
-      <main>{children}</main>
-    </>
-  )
+  return <main>{children}</main>
 }
 
 Layout.propTypes = {
