@@ -2,35 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
-  box-sizing: border-box;
-  overflow-y: scroll;
+	box-sizing: border-box;
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
-* {
-  box-sizing: inherit;
-}
-*:before {
-  box-sizing: inherit;
-}
-*:after {
-  box-sizing: inherit;
-}
-
 
 body {
+	font-weight: normal;
+	word-wrap: break-word;
+	font-kerning: normal;
+	-moz-font-feature-settings: "kern", "liga", "clig", "calt";
+	-ms-font-feature-settings: "kern", "liga", "clig", "calt";
+	-webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+	font-feature-settings: "kern", "liga", "clig", "calt";
 	@apply bg-light;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-a, button {
+a,
+button {
 	cursor: pointer;
 	text-align: left;
 }
@@ -53,7 +43,7 @@ p a:hover {
 	@apply text-red;
 }
 
-p+p {
+p + p {
 	@apply mt-6;
 }
 
@@ -84,14 +74,13 @@ pre {
 	position: relative;
 }
 .aspect.aspect-640-360 {
-	padding-top: 56.25% /* Player ratio: 100 / (360 / 640) */
+	padding-top: 56.25%; /* Player ratio: 100 / (360 / 640) */
 }
-.aspect>* {
-  position: absolute;
-  top: 0;
-  left: 0;
+.aspect > * {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-
 
 .panel {
 	display: flex;
@@ -134,16 +123,16 @@ pre {
 .panel .footer {
 	@apply bg-white text-dark;
 }
-.panel .inner  {
+.panel .inner {
 	@apply py-6  h-32;
 }
-.panel.panel-small .inner  {
+.panel.panel-small .inner {
 	@apply py-1 px-2 h-auto;
 }
 .panel .footer {
 	@apply font-mono text-2xl;
 }
-.panel.panel-small .footer  {
+.panel.panel-small .footer {
 	@apply py-1 px-2;
 }
 
@@ -175,20 +164,17 @@ pre {
 	min-height: 100vh;
 }
 
-pre, code {
+pre,
+code {
 	@apply text-xs;
 }
 
-
-
-
-
 @define-mixin panel $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
-	.panel.panel-$(tilecolor) .tile a:hover, 
+	.panel.panel-$(tilecolor) .tile a:hover,
 	.panel.panel-$(tilecolor) .links .svg-inline--fa {
 		@apply text-$arrowcolor;
 	}
-	.panel.panel-$(tilecolor)>.tile {
+	.panel.panel-$(tilecolor) > .tile {
 		@apply bg-$(tilecolor) text-$(textcolor);
 	}
 	.panel.panel-$(tilecolor) .footer .footerlead,
@@ -197,17 +183,26 @@ pre, code {
 	}
 }
 
-@mixin panel red, white, dark, red {}
-@mixin panel blue, white, yellow, blue {}
-@mixin panel green, white, yellow, green {}
-@mixin panel pink, white, yellow, pink {}
-@mixin panel purple, white, yellow, purple {}
-@mixin panel dark, white, yellow, pink {}
-@mixin panel light, dark, red, red {}
-@mixin panel cyan, white, yellow, cyan {}
-@mixin panel yellow, dark, purple, purple {}
-@mixin panel white, dark, red, red {}
-
+@mixin panel red, white, dark, red {
+}
+@mixin panel blue, white, yellow, blue {
+}
+@mixin panel green, white, yellow, green {
+}
+@mixin panel pink, white, yellow, pink {
+}
+@mixin panel purple, white, yellow, purple {
+}
+@mixin panel dark, white, yellow, pink {
+}
+@mixin panel light, dark, red, red {
+}
+@mixin panel cyan, white, yellow, cyan {
+}
+@mixin panel yellow, dark, purple, purple {
+}
+@mixin panel white, dark, red, red {
+}
 
 svg.inline-icon {
 	width: 1.5em;
@@ -223,8 +218,8 @@ svg.inline-icon {
 	@apply mb-12;
 }
 #guninfiveminutes .tile ol li::before {
-	content: counter(step-counter) '.';
-  position: absolute;
+	content: counter(step-counter) ".";
+	position: absolute;
 	left: -3rem;
 	top: -0.5rem;
 	display: none;
@@ -243,13 +238,12 @@ svg.inline-icon {
 	@apply mr-3;
 }
 
-
 h2 {
 	margin: 0 0 1.45rem 0;
 	padding: 0;
-  color: inherit;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
+	color: inherit;
+	font-weight: bold;
+	text-rendering: optimizeLegibility;
 	line-height: 1.3;
 	@apply font-sans text-3xl;
 }
@@ -257,12 +251,11 @@ h2 {
 h3 {
 	margin: 0 0 1.45rem 0;
 	padding: 0;
-  color: inherit;
+	color: inherit;
 	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-  text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
 	line-height: 1.3;
 	@apply font-sans text-lg;
 }
-
