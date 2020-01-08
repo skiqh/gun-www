@@ -100,7 +100,8 @@ const IndexPage = () => {
 
 	return (
 		<Layout>
-			<SEO title="Home" />
+			<SEO />
+			{/* <SEO title="GUN — the database for freedom fighters" /> */}
 			<div className="panel panel-red panel-full-height">
 				<div className="tile">
 					<Header />
