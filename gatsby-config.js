@@ -40,6 +40,17 @@ module.exports = {
 				postCssPlugins: [require("postcss-mixins"), require("tailwindcss")],
 			},
 		},
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+					`Raleway:500,700`,
+					`"Share Tech Mono"`,
+					// you can also specify font weights and styles
+				],
+				display: "block",
+			},
+		},
 		// `gatsby-plugin-postcss`,
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
