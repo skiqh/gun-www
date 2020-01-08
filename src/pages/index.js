@@ -782,7 +782,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-							<TwitterLogo />
+              <div className="text-sm">
+                <TwitterLogo />
+              </div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Follow GUN on Twitter
 							</span>
@@ -793,7 +795,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-							<GithubLogo />
+              <div className="text-sm">
+                <GithubLogo />
+              </div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Star GUN on Github
 							</span>
@@ -804,7 +808,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-							<DiscordLogo />
+              <div className="text-sm">
+                <DiscordLogo />
+              </div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Join our Discord
 							</span>
