@@ -1,5 +1,5 @@
 import React from "react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Hyphenated from "react-hyphen"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
@@ -88,11 +88,30 @@ gun.get('bob').get('heartbeat').on(heartbeat => {
 })`
 
 const IndexPage = () => {
-	const dwebVideo = useRef(null)
+  const dwebVideo = useRef(null)
+  const [copied_cli, set_copied_cli] = useState(false)
+	const [copied_script, set_copied_script] = useState(false)
+	const [copied_browser_a, set_copied_browser_a] = useState(false)
+	const [copied_browser_b, set_copied_browser_b] = useState(false)
 
-	useEffect(() => {
-
-	})
+	const highlight_cli = () => {
+		set_copied_cli(true)
+		setTimeout(set_copied_cli, 50, false)
+	}
+	const highlight_script = () => {
+		set_copied_script(true)
+		setTimeout(set_copied_script, 50, false)
+	}
+	const highlight_browser_a = () => {
+		set_copied_browser_a(true)
+		setTimeout(set_copied_browser_a, 50, false)
+	}
+	const highlight_browser_b = () => {
+		set_copied_browser_b(true)
+		setTimeout(set_copied_browser_b, 50, false)
+	}
+  
+	useEffect(() => {})
 
 	const scroll = id => {
 		return () => scrollTo(`#${id}`)
@@ -562,26 +581,26 @@ const IndexPage = () => {
 											>
 												GUN's cli
 											</a>{" "}
-											like this:
+											like this (click the boxes to copy the text):
 										</Hyphenated>
 									</p>
 
 									<div className="panel panel-small panel-white mt-4">
-										<div className="tile code">
-											<div className="buttons">
-												<CopyToClipboard
-													onCopy={() => {
-														console.log("copied")
-													}}
-													text={`npx gun-cli --host 127.0.0.1`}
-												>
-													<button className="text-pink">
+										<CopyToClipboard
+											text={`npx gun-cli --host 127.0.0.1`}
+											onCopy={highlight_cli}
+										>
+											<div className="tile code cursor-pointer">
+												<div className="buttons">
+													<button
+														className={copied_cli ? "text-pink" : "text-dark"}
+													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
-												</CopyToClipboard>
+												</div>
+												<pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
 											</div>
-											<pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
-										</div>
+										</CopyToClipboard>
 									</div>
 								</li>
 								<li>
@@ -648,21 +667,23 @@ const IndexPage = () => {
 										</Hyphenated>
 									</p>
 									<div className="panel panel-small panel-white mt-4">
-										<div className="tile code">
-											<div className="buttons">
-												<CopyToClipboard
-													onCopy={() => {
-														console.log("copied")
-													}}
-													text={`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
-												>
-													<button className="text-pink">
+										<CopyToClipboard
+											onCopy={highlight_script}
+											text={`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
+										>
+											<div className="tile code cursor-pointer">
+												<div className="buttons">
+													<button
+														className={
+															copied_script ? "text-pink" : "text-dark"
+														}
+													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
-												</CopyToClipboard>
+												</div>
+												<pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
 											</div>
-											<pre>{`<!-- To get going, add GUN to your website from a CDN -->\n<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}</pre>
-										</div>
+										</CopyToClipboard>
 									</div>
 								</li>
 								<li>
@@ -704,48 +725,52 @@ const IndexPage = () => {
 										</Hyphenated>
 									</p>
 									<div className="panel panel-small panel-white mt-4">
-										<div className="tile code">
-											<div className="buttons">
-												<CopyToClipboard
-													onCopy={() => {
-														console.log("copied")
-													}}
-													text={code_browser_a}
-												>
-													<button className="text-pink">
+										<CopyToClipboard
+											onCopy={highlight_browser_a}
+											text={code_browser_a}
+										>
+											<div className="tile code cursor-pointer">
+												<div className="buttons">
+													<button
+														className={
+															copied_browser_a ? "text-pink" : "text-dark"
+														}
+													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
-												</CopyToClipboard>
+												</div>
+												<Dots
+													a={themecolors.blue}
+													b={themecolors.pink}
+													c={themecolors.orange}
+												/>
+												<pre>{code_browser_a}</pre>
 											</div>
-											<Dots
-												a={themecolors.blue}
-												b={themecolors.pink}
-												c={themecolors.orange}
-											/>
-											<pre>{code_browser_a}</pre>
-										</div>
+										</CopyToClipboard>
 									</div>
 									<div className="panel panel-small panel-white mt-2">
-										<div className="tile code">
-											<div className="buttons">
-												<CopyToClipboard
-													onCopy={() => {
-														console.log("copied")
-													}}
-													text={code_browser_b}
-												>
-													<button className="text-pink">
+										<CopyToClipboard
+											onCopy={highlight_browser_b}
+											text={code_browser_b}
+										>
+											<div className="tile code cursor-pointer">
+												<div className="buttons">
+													<button
+														className={
+															copied_browser_b ? "text-pink" : "text-dark"
+														}
+													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
-												</CopyToClipboard>
+												</div>
+												<Dots
+													a={themecolors.blue}
+													b={themecolors.pink}
+													c={themecolors.orange}
+												/>
+												<pre>{code_browser_b}</pre>
 											</div>
-											<Dots
-												a={themecolors.blue}
-												b={themecolors.pink}
-												c={themecolors.orange}
-											/>
-											<pre>{code_browser_b}</pre>
-										</div>
+										</CopyToClipboard>
 									</div>
 								</li>
 							</ol>
@@ -783,9 +808,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-              <div className="text-sm">
-                <TwitterLogo />
-              </div>
+							<div className="text-sm">
+								<TwitterLogo />
+							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Follow GUN on Twitter
 							</span>
@@ -796,9 +821,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-              <div className="text-sm">
-                <GithubLogo />
-              </div>
+							<div className="text-sm">
+								<GithubLogo />
+							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Star GUN on Github
 							</span>
@@ -809,9 +834,9 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item"
 						>
-              <div className="text-sm">
-                <DiscordLogo />
-              </div>
+							<div className="text-sm">
+								<DiscordLogo />
+							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Join our Discord
 							</span>

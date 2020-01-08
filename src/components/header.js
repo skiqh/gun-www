@@ -6,7 +6,7 @@ import GithubLogo from "../images/logo/github.svg"
 
 const Header = ({ siteTitle }) => (
 	<header className="lg:w-box lg:mx-auto px-6 lg:px-0 py-4">
-		<div className="flex flex-row w-full text-white font-mono">
+		<div className="flex flex-row w-full text-dark font-mono">
 			<a href="https://era.eco" target="_blank" rel="noopener noreferrer">
 				<ERAlogo />
 			</a>

@@ -16,7 +16,7 @@ body {
 	-ms-font-feature-settings: "kern", "liga", "clig", "calt";
 	-webkit-font-feature-settings: "kern", "liga", "clig", "calt";
 	font-feature-settings: "kern", "liga", "clig", "calt";
-	@apply bg-dark text-white;
+	@apply bg-light;
 }
 
 a,
@@ -89,6 +89,9 @@ pre {
 .panel .tile.code .buttons {
 	float: right;
 	@apply ml-2 mb-1;
+}
+.panel .tile.code .buttons button.text-dark {
+	transition: color 2s ease-out;
 }
 
 .panel .tile.code {
