@@ -45,7 +45,7 @@ module.exports = {
 			options: {
 				fonts: [
 					`Raleway:500,700`,
-					`"Share Tech Mono"`,
+					`Share Tech Mono`,
 					// you can also specify font weights and styles
 				],
 				display: "block",
