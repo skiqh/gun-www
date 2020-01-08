@@ -16,11 +16,11 @@ import "./layout.css"
 config.autoAddCss = false
 
 const Layout = ({ children }) => {
-  return <main>{children}</main>
+	return <main>{children}</main>
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 }
 
 export default Layout
