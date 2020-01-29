@@ -15,7 +15,8 @@ import Nordiccover from "../images/cover/nordicjs.jpg"
 import NBClogo from "../images/logo/nbc.svg"
 // import HackerNewsLogo from "../images/logo/hackernews.svg"
 import TechCrunchLogo from "../images/logo/techcrunch.svg"
-import CoinDeskLogo from "../images/logo/coindesk.svg"
+import YahooFinanceLogo from "../images/logo/yahoo-finance.svg"
+// import CoinDeskLogo from "../images/logo/coindesk.svg"
 import TwitterLogo from "../images/logo/twitter.svg"
 import GithubLogo from "../images/logo/github.svg"
 import DiscordLogo from "../images/logo/discord.svg"
@@ -324,13 +325,21 @@ const IndexPage = () => {
 							<ChangelogLogo />
 						</a>
 						<a
+							href="https://finance.yahoo.com/news/hacker-noon-storing-content-blockchain-150011860.html"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="item w-4/12 h-4 sm:w-1/9 sm:h-10"
+						>
+							<YahooFinanceLogo />
+						</a>
+						{/* <a
 							href="https://www.coindesk.com/bitcoins-second-developer-returning-crypto"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="item w-4/12 h-4 sm:w-1/9 sm:h-10"
 						>
 							<CoinDeskLogo />
-						</a>
+						</a> */}
 					</div>
 				</div>
 			</div>

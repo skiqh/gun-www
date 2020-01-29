@@ -10,7 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "babel-plugin-prismjs": "^1.1.1",
     "gatsby": "^2.18.12",
-    "gatsby-cli": "^2.8.23",
+    "gatsby-cli": "^2.8.27",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.31",
