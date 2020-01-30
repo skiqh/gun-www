@@ -38,6 +38,7 @@ p a,
 p button {
 	border-bottom: 0.01em solid;
 	border-radius: 0;
+	line-height: 1;
 }
 p a:hover {
 	@apply text-red;

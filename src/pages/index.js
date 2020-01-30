@@ -23,7 +23,8 @@ import DiscordLogo from "../images/logo/discord.svg"
 import GUNlogo from "../images/logo/gun.svg"
 import HackerNoonLogo from "../images/logo/hackernoon.svg"
 import InternetArchiveLogo from "../images/logo/internetarchive.svg"
-import RoyalNetherlandsNavyLogo from "../images/logo/royalnetherlandsnavy.svg"
+import IrisLogo from "../images/logo/iris.svg"
+// import RoyalNetherlandsNavyLogo from "../images/logo/royalnetherlandsnavy.svg"
 import ChangelogLogo from "../images/logo/changelog.svg"
 
 import * as tailwindconfig from "../../tailwind.config"
@@ -143,13 +144,14 @@ const IndexPage = () => {
 					</div>
 				</div>
 				<div className="footer">
-					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
+					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0 flex-row justify-between">
 						<span className="pr-16 hidden sm:block footerlead">Used by</span>
+
 						<a
 							href="https://www.hackernoon.com/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-3/12 sm:w-2/12"
+							className="item h-4 sm:h-4 md:h-5"
 						>
 							<HackerNoonLogo />
 						</a>
@@ -157,13 +159,18 @@ const IndexPage = () => {
 							href="https://archive.org/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-3/12 sm:w-2/12"
+							className="item h-5 sm:h-6 md:h-8"
 						>
 							<InternetArchiveLogo />
 						</a>
-						<div className="item w-3/12 sm:w-2/12">
-							<RoyalNetherlandsNavyLogo />
-						</div>
+						<a
+							href="https://iris.to"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="item h-5 sm:h-6 md:h-8"
+						>
+							<IrisLogo />
+						</a>
 					</div>
 				</div>
 			</div>
@@ -296,7 +303,7 @@ const IndexPage = () => {
 				</div>
 
 				<div className="footer">
-					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
+					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0 flex-row justify-between">
 						<span className="pr-16 hidden sm:block footerlead">
 							GUN in the news
 						</span>
@@ -304,7 +311,7 @@ const IndexPage = () => {
 							href="https://www.nbcnews.com/video/building-a-new-internet-the-bold-plan-to-decentralize-the-web-63742021851"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-2/12 h-6 sm:w-1/9 sm:h-10"
+							className="item item h-6 sm:h-5 md:h-8"
 						>
 							<NBClogo />
 						</a>
@@ -312,7 +319,7 @@ const IndexPage = () => {
 							href="https://techcrunch.com/2018/05/23/gun-raises-more-than-1-5m-for-its-decentralized-database-system/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-2/12 h-6 sm:w-1/9 sm:h-10"
+							className="item item h-6 sm:h-5 md:h-8"
 						>
 							<TechCrunchLogo />
 						</a>
@@ -320,7 +327,7 @@ const IndexPage = () => {
 							href="https://changelog.com/podcast/236"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-4/12 h-6 sm:w-1/9 sm:h-10"
+							className="item item h-6 sm:h-5 md:h-8"
 						>
 							<ChangelogLogo />
 						</a>
@@ -328,7 +335,7 @@ const IndexPage = () => {
 							href="https://finance.yahoo.com/news/hacker-noon-storing-content-blockchain-150011860.html"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-4/12 h-4 sm:w-1/9 sm:h-10"
+							className="item item h-6 sm:h-5 md:h-8"
 						>
 							<YahooFinanceLogo />
 						</a>
@@ -336,7 +343,7 @@ const IndexPage = () => {
 							href="https://www.coindesk.com/bitcoins-second-developer-returning-crypto"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="item w-4/12 h-4 sm:w-1/9 sm:h-10"
+							className="item item h-6 sm:h-5 md:h-8"
 						>
 							<CoinDeskLogo />
 						</a> */}
