@@ -570,7 +570,8 @@ const IndexPage = () => {
 												rel="noopener noreferrer"
 											>
 												browsers
-											</a>, in{" "}
+											</a>
+											, in{" "}
 											<a
 												href="https://gun.eco/docs/Installation#node"
 												target="_blank"
@@ -798,7 +799,11 @@ const IndexPage = () => {
 								</Hyphenated>
 							</p>
 							<div className="links">
-								<a href="/docs" target="_blank" rel="noopener noreferrer">
+								<a
+									href="https://gun.eco/docs/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<FontAwesomeIcon icon={faArrowRight} />
 									Jump straight to GUN's Documentation
 								</a>

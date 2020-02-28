@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
 				<ERAlogo />
 			</a>
 			<div className="flex-grow">&nbsp;</div>
-			<a className="p-1 sm:p-2 mx-1 sm:mx-3" href="/docs">
+			<a className="p-1 sm:p-2 mx-1 sm:mx-3" href="https://gun.eco/docs/">
 				Docs
 			</a>
 			<a
