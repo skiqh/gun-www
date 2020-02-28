@@ -71,20 +71,19 @@ gun.get('coords').on(coords => {
     map.dot.move(coords.latitude, coords.longitude)
 })`
 
-const code_browser_a = `// First, connect to the peer you started above
-const gun = Gun({ peers: ['http://127.0.0.1:8765/gun'] })
+const code_browser_a = `// Connect to as many peers as you want
+const gun = Gun({ peers: ['http://localhost:8765/gun', 'http://gunjs.herokuapp.com/gun'] })
 
 // Then make the browser regularly update the db
 setInterval(() => {
   gun.get('bob').get('heartbeat').put(Date.now())
 }, 1000)`
 
-const code_browser_b = `// In a second browser, connect to the same peer
-const gun = Gun({ peers: ['http://127.0.0.1:8765/gun'] })
+const code_browser_b = `// Browsers will discover each other automatically through one of the many peers
+const gun = Gun({ peers: ['http://localhost:8765/gun', 'http://gunjs.herokuapp.com/gun'] })
 
 // And listen to the heartbeat updates in real-time
 gun.get('bob').get('heartbeat').on(heartbeat => {
-  // Assume the other clock is reasonably in sync :-P
   const diff = Date.now() - heartbeat
   console.log(\`Bob's heartbeat traveled \${diff} ms\`)
 })`
@@ -128,18 +127,15 @@ const IndexPage = () => {
 					<Header />
 					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
 						<GUNlogo style={{ maxWidth: "20rem", minHeight: "10rem" }} alt="" />
-						<h2 className="mt-12 text-4xl">
+						<h2 className="mt-12 text-2xl sm:text-4xl">
 							The database for <br />
 							freedom fighters
 						</h2>
 						<span className="mt-8 text-dark text-xl">
-							<FontAwesomeIcon icon={faArrowRight} />
-							<button
-								onClick={scroll("guninfiveminutes")}
-								className="font-mono ml-2"
-							>
-								Get started
-							</button>
+							<a href="https://gun.eco/docs/Todo-Dapp">
+								<FontAwesomeIcon icon={faArrowRight} />
+								<span className="font-mono ml-2">Get started</span>
+							</a>
 						</span>
 					</div>
 				</div>
@@ -282,7 +278,7 @@ const IndexPage = () => {
 			<div className="panel panel-yellow" id="decentralization">
 				<div className="tile py-air">
 					<div className="lg:w-box lg:mx-auto px-6 lg:px-0">
-						<h3>17 Million users and counting</h3>
+						<h3>20 Million monthly downloads</h3>
 						<h2>
 							<Hyphenated>
 								GUN is powering decentralized platforms with millions of users
@@ -290,11 +286,11 @@ const IndexPage = () => {
 							</Hyphenated>
 						</h2>
 						<div className="links">
-							<a href="##">
+							<a href="https://finance.yahoo.com/news/hacker-noon-storing-content-blockchain-150011860.html">
 								<FontAwesomeIcon icon={faArrowRight} />
-								How HackerNoon handles 10M+ users on one free Heroku dyno
+								See how HackerNoon handles ~4M users on $0 server costs
 							</a>
-							<a href="##">
+							<a href="https://news.ycombinator.com/item?id=17685682">
 								<FontAwesomeIcon icon={faArrowRight} />
 								Decentralizing the Internet Archive with lots of GUNs
 							</a>
@@ -558,67 +554,11 @@ const IndexPage = () => {
 				<div className="tile py-air flex-col md:items-center lg:items-start">
 					<div className="px-6 lg:px-0 lg:w-box lg:mx-auto">
 						<div className="md:w-8/12 md:mx-auto lg:mx-0">
-							<h2>GUN in 5 minutes</h2>
+							<h2 className="mb-0">GUN in 5 minutes</h2>
+							<div className="font-mono mb-8 text-sm">
+								(click the boxes to copy the text)
+							</div>
 							<ol>
-								<li>
-									<p>
-										<strong>Start a GUN peer. </strong>
-										<Hyphenated>
-											A peer is a remote database instance that you can sync
-											your data with. You can deploy one to{" "}
-											<a
-												href="https://heroku.com/deploy?template=https://github.com/amark/gun"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												heroku
-											</a>
-											, spin it up in{" "}
-											<a
-												href="https://hub.docker.com/r/gundb/gun"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												docker
-											</a>
-											, use the{" "}
-											<a
-												href="https://gun.eco/docs/Installation#server"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												node.js API directly
-											</a>
-											, or start one with{" "}
-											<a
-												href="https://github.com/skiqh/gun-cli"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												GUN's cli
-											</a>{" "}
-											like this (click the boxes to copy the text):
-										</Hyphenated>
-									</p>
-
-									<div className="panel panel-small panel-white mt-4">
-										<CopyToClipboard
-											text={`npx gun-cli --host 127.0.0.1`}
-											onCopy={highlight_cli}
-										>
-											<div className="tile code cursor-pointer">
-												<div className="buttons">
-													<button
-														className={copied_cli ? "text-pink" : "text-dark"}
-													>
-														<FontAwesomeIcon icon={faCopy} />
-													</button>
-												</div>
-												<pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
-											</div>
-										</CopyToClipboard>
-									</div>
-								</li>
 								<li>
 									<p>
 										<strong>Add the GUN library. </strong>
@@ -630,8 +570,7 @@ const IndexPage = () => {
 												rel="noopener noreferrer"
 											>
 												browsers
-											</a>{" "}
-											(going back to IE 6), in{" "}
+											</a>, in{" "}
 											<a
 												href="https://gun.eco/docs/Installation#node"
 												target="_blank"
@@ -735,9 +674,8 @@ const IndexPage = () => {
 									</p>
 									<p>
 										<Hyphenated>
-											As an example, try relaying live data over the GUN peer
-											you just started — run the following snippets in the
-											consoles of two separate tabs or browsers:
+											As an ex­am­ple, run the fol­low­ing snip­pets in the
+											con­soles of two sep­a­rate tabs or browsers:
 										</Hyphenated>
 									</p>
 									<div className="panel panel-small panel-white mt-4">
@@ -785,6 +723,67 @@ const IndexPage = () => {
 													c={themecolors.orange}
 												/>
 												<pre>{code_browser_b}</pre>
+											</div>
+										</CopyToClipboard>
+									</div>
+								</li>
+
+								<li>
+									<p>
+										<strong>Run a GUN relay. </strong>
+										<Hyphenated>
+											(optional) A relay can run on your laptop or in the cloud,
+											they are used as fallbacks when WebRTC fails. You can
+											deploy one to{" "}
+											<a
+												href="https://heroku.com/deploy?template=https://github.com/amark/gun"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												heroku
+											</a>
+											, spin it up in{" "}
+											<a
+												href="https://hub.docker.com/r/gundb/gun"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												docker
+											</a>
+											, use the{" "}
+											<a
+												href="https://gun.eco/docs/Installation#server"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												node.js API directly
+											</a>
+											, or start one with{" "}
+											<a
+												href="https://github.com/skiqh/gun-cli"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												GUN's cli
+											</a>{" "}
+											like this:
+										</Hyphenated>
+									</p>
+
+									<div className="panel panel-small panel-white mt-4">
+										<CopyToClipboard
+											text={`npx gun-cli --host 127.0.0.1`}
+											onCopy={highlight_cli}
+										>
+											<div className="tile code cursor-pointer">
+												<div className="buttons">
+													<button
+														className={copied_cli ? "text-pink" : "text-dark"}
+													>
+														<FontAwesomeIcon icon={faCopy} />
+													</button>
+												</div>
+												<pre>{`#  Assuming you have node.js and npm installed, run this in your command line\nnpx gun-cli --host 127.0.0.1`}</pre>
 											</div>
 										</CopyToClipboard>
 									</div>
@@ -845,7 +844,7 @@ const IndexPage = () => {
 							</span>
 						</a>
 						<a
-							href="https://discordapp.com/channels/612645357850984470/612645357850984473"
+							href="http://chat.gun.eco/"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="item"
@@ -997,7 +996,7 @@ const IndexPage = () => {
 								</li>
 								<li>
 									<a
-										href="https://discordapp.com/channels/612645357850984470/612645357850984473"
+										href="http://chat.gun.eco/"
 										target="_blank"
 										rel="noopener noreferrer"
 									>

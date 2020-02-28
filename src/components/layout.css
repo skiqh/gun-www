@@ -17,6 +17,7 @@ body {
 	-webkit-font-feature-settings: "kern", "liga", "clig", "calt";
 	font-feature-settings: "kern", "liga", "clig", "calt";
 	@apply bg-light;
+	min-width: 270px;
 }
 
 a,
@@ -27,6 +28,9 @@ button {
 header a,
 header button {
 	color: inherit;
+}
+header .inline-icon {
+	@apply w-full h-full !important;
 }
 h2,
 h3,
@@ -171,6 +175,21 @@ pre {
 pre,
 code {
 	@apply text-xs;
+}
+@media (max-width: 420px) {
+	.tile.code pre {
+		font-size: 0.6rem;
+	}
+}
+@media (max-width: 380px) {
+	.tile.code pre {
+		font-size: 0.5rem;
+	}
+}
+@media (max-width: 340px) {
+	.tile.code pre {
+		font-size: 0.45rem;
+	}
 }
 
 @define-mixin panel $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
