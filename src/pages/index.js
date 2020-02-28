@@ -282,7 +282,7 @@ const IndexPage = () => {
 			<div className="panel panel-yellow" id="decentralization">
 				<div className="tile py-air">
 					<div className="lg:w-box lg:mx-auto px-6 lg:px-0">
-						<h3>10 Million users and counting</h3>
+						<h3>17 Million users and counting</h3>
 						<h2>
 							<Hyphenated>
 								GUN is powering decentralized platforms with millions of users

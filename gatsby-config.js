@@ -1,12 +1,22 @@
 module.exports = {
+	assetPrefix: "/main",
 	siteMetadata: {
 		title: `GUN — the database for freedom fighters`,
 		description: `GUN is a distributed, offline-first, realtime graph database engine with built-in encryption.`,
 		author: `@marknadal`,
 		image: "/og-image.png", // Path to your image you placed in the 'static' folder
+		siteUrl: `https://gun.eco`,
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-sitemap`,
+		{
+			resolve: "gatsby-plugin-asset-path",
+			options: {
+				removeMapFiles: true,
+				additionalPaths: ["manifest.webmanifest", "sitemap.xml"],
+			},
+		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
