@@ -550,7 +550,10 @@ const IndexPage = () => {
 				</div>
 			</div>
 
-			<div className="panel panel-cyan" id="guninfiveminutes">
+			<div
+				className="panel panel-guninfiveminutes"
+				id="guninfiveminutes"
+			>
 				<div className="tile py-air flex-col md:items-center lg:items-start">
 					<div className="px-6 lg:px-0 lg:w-box lg:mx-auto">
 						<div className="md:w-8/12 md:mx-auto lg:mx-0">
@@ -622,7 +625,7 @@ const IndexPage = () => {
 											.
 										</Hyphenated>
 									</p>
-									<div className="panel panel-small panel-white mt-4">
+									<div className="panel panel-small panel-code mt-4">
 										<CopyToClipboard
 											onCopy={highlight_script}
 											text={`<script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>`}
@@ -679,7 +682,7 @@ const IndexPage = () => {
 											con­soles of two sep­a­rate tabs or browsers:
 										</Hyphenated>
 									</p>
-									<div className="panel panel-small panel-white mt-4">
+									<div className="panel panel-small panel-code mt-4">
 										<CopyToClipboard
 											onCopy={highlight_browser_a}
 											text={code_browser_a}
@@ -703,7 +706,7 @@ const IndexPage = () => {
 											</div>
 										</CopyToClipboard>
 									</div>
-									<div className="panel panel-small panel-white mt-2">
+									<div className="panel panel-small panel-code mt-2">
 										<CopyToClipboard
 											onCopy={highlight_browser_b}
 											text={code_browser_b}
@@ -771,7 +774,7 @@ const IndexPage = () => {
 										</Hyphenated>
 									</p>
 
-									<div className="panel panel-small panel-white mt-4">
+									<div className="panel panel-small panel-code mt-4">
 										<CopyToClipboard
 											text={`npx gun-cli --host 127.0.0.1`}
 											onCopy={highlight_cli}

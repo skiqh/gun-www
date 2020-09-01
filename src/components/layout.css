@@ -16,8 +16,14 @@ body {
 	-ms-font-feature-settings: "kern", "liga", "clig", "calt";
 	-webkit-font-feature-settings: "kern", "liga", "clig", "calt";
 	font-feature-settings: "kern", "liga", "clig", "calt";
-	@apply bg-light;
+	@apply bg-gray-900 text-gray-500;
 	min-width: 270px;
+}
+h2, h3 {
+	@apply text-gray-200;
+}
+.panel h2, .panel h3 {
+	color: inherit;
 }
 
 a,
@@ -44,8 +50,9 @@ p button {
 	border-radius: 0;
 	line-height: 1;
 }
-p a:hover {
-	@apply text-red;
+p a:hover,
+p button:hover {
+	@apply text-white;
 }
 
 p + p {
@@ -64,6 +71,10 @@ p + p {
 	@apply font-mono mb-4;
 	line-height: 1;
 	display: block;
+}
+.links a:hover,
+.links button:hover {
+	@apply text-white;
 }
 
 @screen lg {
@@ -129,7 +140,7 @@ pre {
 	justify-content: space-between;
 }
 .panel .footer {
-	@apply bg-white text-dark;
+	@apply bg-black text-white;
 }
 .panel .inner {
 	@apply py-6  h-32;
@@ -157,6 +168,13 @@ pre {
 .panel .footer .item svg {
 	max-width: 100%;
 	max-height: 100%;
+	@apply text-gray-700;
+}
+.panel .footer .item svg path:not([fill]) {
+	@apply fill-current;
+}
+.panel .footer .item svg stop {
+	stop-color: theme('colors.gray.700');
 }
 .panel.panel-small .footer {
 	@apply font-mono text-xxs;
@@ -192,39 +210,44 @@ code {
 	}
 }
 
-@define-mixin panel $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
-	.panel.panel-$(tilecolor) .tile a:hover,
-	.panel.panel-$(tilecolor) .links .svg-inline--fa {
+@define-mixin panel $name, $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
+	.panel.panel-$(name) .tile a:hover,
+	.panel.panel-$(name) .links .svg-inline--fa {
 		@apply text-$arrowcolor;
 	}
-	.panel.panel-$(tilecolor) > .tile {
+	.panel.panel-$(name) > .tile {
 		@apply bg-$(tilecolor) text-$(textcolor);
 	}
-	.panel.panel-$(tilecolor) .footer .footerlead,
-	.panel.panel-$(tilecolor) .footer .footericon {
+	.panel.panel-$(name) .footer .footerlead,
+	.panel.panel-$(name) .footer .footericon {
 		@apply text-$(footerleadcolor);
 	}
 }
 
-@mixin panel red, white, dark, red {
+@mixin panel red, red, white, dark, red {
 }
-@mixin panel blue, white, yellow, blue {
+@mixin panel blue, blue, white, yellow, yellow {
 }
-@mixin panel green, white, yellow, green {
+@mixin panel green, green, white, yellow, green {
 }
-@mixin panel pink, white, yellow, pink {
+@mixin panel pink, pink, white, yellow, cyan {
 }
-@mixin panel purple, white, yellow, purple {
+@mixin panel purple, purple, white, yellow, purple {
 }
-@mixin panel dark, white, yellow, pink {
+@mixin panel dark, dark, white, yellow, pink {
 }
-@mixin panel light, dark, red, red {
+@mixin panel light, light, dark, red, red {
 }
-@mixin panel cyan, white, yellow, cyan {
+@mixin panel cyan, cyan, dark, yellow, cyan {
 }
-@mixin panel yellow, dark, purple, purple {
+@mixin panel yellow, yellow, dark, purple, purple {
 }
-@mixin panel white, dark, red, red {
+@mixin panel white, white, dark, red, red {
+}
+
+@mixin panel guninfiveminutes, purple, white, yellow, yellow {
+}
+@mixin panel code, black, light, red, red {
 }
 
 svg.inline-icon {
@@ -263,7 +286,6 @@ svg.inline-icon {
 h2 {
 	margin: 0 0 1.45rem 0;
 	padding: 0;
-	color: inherit;
 	font-weight: bold;
 	text-rendering: optimizeLegibility;
 	line-height: 1.3;
@@ -273,11 +295,61 @@ h2 {
 h3 {
 	margin: 0 0 1.45rem 0;
 	padding: 0;
-	color: inherit;
 	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	text-rendering: optimizeLegibility;
 	line-height: 1.3;
 	@apply font-sans text-lg;
+}
+
+
+
+
+@media (prefers-color-scheme: light) {
+	body {
+		@apply bg-light text-dark;
+	}
+	h2, h3 {
+		@apply text-black;
+	}
+	.links a:hover,
+	.links button:hover {
+		@apply text-gray-600;
+	}
+	.panel .footer {
+		@apply bg-white text-dark;
+	}
+	.panel .footer .item svg {
+		@apply text-gray-900;
+	}
+	.panel .footer .item svg stop {
+		stop-color: theme('colors.gray.900');
+	}
+	
+	@mixin panel red, red, white, dark, red {
+	}
+	@mixin panel blue, blue, white, yellow, blue {
+	}
+	@mixin panel green, green, white, yellow, green {
+	}
+	@mixin panel pink, pink, white, yellow, cyan {
+	}
+	@mixin panel purple, purple, white, yellow, purple {
+	}
+	@mixin panel dark, dark, white, yellow, pink {
+	}
+	@mixin panel light, light, dark, red, red {
+	}
+	@mixin panel cyan, cyan, white, yellow, cyan {
+	}
+	@mixin panel yellow, yellow, dark, purple, purple {
+	}
+	@mixin panel white, white, dark, red, red {
+	}
+
+	@mixin panel guninfiveminutes, cyan, white, yellow, red {
+	}
+	@mixin panel code, white, dark, red, red {
+	}
 }
