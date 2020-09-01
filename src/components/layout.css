@@ -250,7 +250,7 @@ code {
 
 @mixin panel dark, guninfiveminutes, purple, white, yellow, yellow {
 }
-@mixin panel dark, code, black, light, red, red {
+@mixin panel dark, code, dark, gray-400, red, red {
 }
 
 svg.inline-icon {
