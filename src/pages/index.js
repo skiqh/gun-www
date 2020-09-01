@@ -7,25 +7,25 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import Header from "../components/header"
+import { BreakpointProvider, useBreakpoint } from "../components/useBreakpoint"
 
-import NBCcover from "../images/cover/nbcnews.jpg"
-import Nordiccover from "../images/cover/nordicjs.jpg"
+import coverNBC from "../images/cover/nbcnews.jpg"
+import coverNordic from "../images/cover/nordicjs.jpg"
+import LogoNBC from "../images/logo/nbc.svg"
+import LogoTechCrunch from "../images/logo/techcrunch.svg"
+import LogoYahooFinance from "../images/logo/yahoo-finance.svg"
+import LogoTwitter from "../images/logo/twitter.svg"
+import LogoGithub from "../images/logo/github.svg"
+import LogoDiscord from "../images/logo/discord.svg"
+import LogoGUN from "../images/logo/gun.svg"
+import LogoHackerNoon from "../images/logo/hackernoon.svg"
+import LogoInternetArchive from "../images/logo/internetarchive.svg"
+import LogoIris from "../images/logo/iris.svg"
+import LogoChangelog from "../images/logo/changelog.svg"
+import LogoERA from "../images/logo/era.svg"
 
-import NBClogo from "../images/logo/nbc.svg"
-// import HackerNewsLogo from "../images/logo/hackernews.svg"
-import TechCrunchLogo from "../images/logo/techcrunch.svg"
-import YahooFinanceLogo from "../images/logo/yahoo-finance.svg"
-// import CoinDeskLogo from "../images/logo/coindesk.svg"
-import TwitterLogo from "../images/logo/twitter.svg"
-import GithubLogo from "../images/logo/github.svg"
-import DiscordLogo from "../images/logo/discord.svg"
-import GUNlogo from "../images/logo/gun.svg"
-import HackerNoonLogo from "../images/logo/hackernoon.svg"
-import InternetArchiveLogo from "../images/logo/internetarchive.svg"
-import IrisLogo from "../images/logo/iris.svg"
-// import RoyalNetherlandsNavyLogo from "../images/logo/royalnetherlandsnavy.svg"
-import ChangelogLogo from "../images/logo/changelog.svg"
+import IconNight from "../images/icons/night.svg"
+import IconDay from "../images/icons/day.svg"
 
 import * as tailwindconfig from "../../tailwind.config"
 
@@ -88,12 +88,28 @@ gun.get('bob').get('heartbeat').on(heartbeat => {
   console.log(\`Bob's heartbeat traveled \${diff} ms\`)
 })`
 
+const queries = {
+	xs: "(max-width: 320px)",
+	sm: "(min-width: 321px) and (max-width: 640px)",
+	md: "(min-width: 641px) and (max-width: 768px)",
+	lg: "(min-width: 769px) and (max-width: 1024px)",
+	xl: "(min-width: 1025px) and (max-width: 1280px)",
+	xxl: "(min-width: 1281px)",
+	prefersLightMode: "(prefers-color-scheme: light)",
+}
+
 const IndexPage = () => {
-  const dwebVideo = useRef(null)
-  const [copied_cli, set_copied_cli] = useState(false)
+	const dwebVideo = useRef(null)
+	const [copied_cli, set_copied_cli] = useState(false)
 	const [copied_script, set_copied_script] = useState(false)
 	const [copied_browser_a, set_copied_browser_a] = useState(false)
 	const [copied_browser_b, set_copied_browser_b] = useState(false)
+
+	const matchPoints = useBreakpoint()
+	const [theme, set_theme] = useState(
+		matchPoints.prefersLightMode ? "light" : "dark"
+	)
+	console.log(`matchPoints`, matchPoints, theme)
 
 	const highlight_cli = () => {
 		set_copied_cli(true)
@@ -111,8 +127,20 @@ const IndexPage = () => {
 		set_copied_browser_b(true)
 		setTimeout(set_copied_browser_b, 50, false)
 	}
-  
-	useEffect(() => {})
+	const changeTheme = () => {
+		set_theme(theme === "dark" ? "light" : "dark")
+	}
+
+	useEffect(() => {
+		window.document.body.classList.toggle("theme-dark", theme === "dark")
+		window.document.body.classList.toggle("theme-light", theme === "light")
+		window.document.body.classList.toggle("size-xs", matchPoints.xs)
+		window.document.body.classList.toggle("size-sm", matchPoints.sm)
+		window.document.body.classList.toggle("size-md", matchPoints.md)
+		window.document.body.classList.toggle("size-lg", matchPoints.lg)
+		window.document.body.classList.toggle("size-xl", matchPoints.xl)
+		window.document.body.classList.toggle("size-xxl", matchPoints.xxl)
+	}, [theme, matchPoints])
 
 	const scroll = id => {
 		return () => scrollTo(`#${id}`)
@@ -124,9 +152,58 @@ const IndexPage = () => {
 			{/* <SEO title="GUN — the database for freedom fighters" /> */}
 			<div className="panel panel-red panel-full-height">
 				<div className="tile">
-					<Header />
+					<header className="lg:w-box lg:mx-auto px-6 lg:px-0 py-4">
+						<div className="flex flex-row items-center w-full text-dark font-mono text-sm sm:text-base">
+							<a
+								href="https://era.eco"
+								className="h-8 md:h-12 w-8 md:w-12"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<LogoERA />
+							</a>
+							<div className="flex-grow">&nbsp;</div>
+							<a
+								className="p-1 sm:p-2 mx-1 sm:mx-3"
+								href="https://gun.eco/docs/"
+							>
+								Docs
+							</a>
+							<a
+								href="http://chat.gun.eco/"
+								className="p-1 sm:p-2 mx-1 sm:mx-3"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Community
+							</a>
+							<a
+								href="https://twitter.com/marknadal"
+								className="p-1 sm:p-2 mx-1 sm:mx-2 h-8 w-8 sm:h-10 sm:w-10"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<LogoTwitter />
+							</a>
+							<a
+								href="https://github.com/amark/gun"
+								className="p-1 sm:p-2 mx-1 sm:mx-2 sm:mx-3 h-8 w-8 sm:h-10 sm:w-10"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<LogoGithub />
+							</a>
+							<div
+								className="scheme-switcher-wrapper p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
+								onClick={changeTheme}
+							>
+								<IconNight />
+								<IconDay />
+							</div>
+						</div>
+					</header>
 					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
-						<GUNlogo style={{ maxWidth: "20rem", minHeight: "10rem" }} alt="" />
+						<LogoGUN style={{ maxWidth: "20rem", minHeight: "10rem" }} alt="" />
 						<h2 className="mt-12 text-2xl sm:text-4xl">
 							The database for <br />
 							freedom fighters
@@ -149,7 +226,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item h-4 sm:h-4 md:h-5"
 						>
-							<HackerNoonLogo />
+							<LogoHackerNoon />
 						</a>
 						<a
 							href="https://archive.org/"
@@ -157,7 +234,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item h-5 sm:h-6 md:h-8"
 						>
-							<InternetArchiveLogo />
+							<LogoInternetArchive />
 						</a>
 						<a
 							href="https://iris.to"
@@ -165,7 +242,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item h-5 sm:h-6 md:h-8"
 						>
-							<IrisLogo />
+							<LogoIris />
 						</a>
 					</div>
 				</div>
@@ -207,7 +284,7 @@ const IndexPage = () => {
 						<VideoPanel
 							ref={dwebVideo}
 							url="https://www.youtube.com/watch?v=ZF7a5oj77-U"
-							cover={NBCcover}
+							cover={coverNBC}
 							footerText="GUN author Mark Nadal on why he is building a decentralized web, and what it looks like."
 						/>
 					</div>
@@ -216,7 +293,7 @@ const IndexPage = () => {
 					<div className="w-full md:w-8/12 lg:w-smallcol">
 						<VideoPanel
 							url="https://www.youtube.com/watch?v=5fCPRY-9hkc"
-							cover={Nordiccover}
+							cover={coverNordic}
 							footerText="Mark Nadal at Nordic.js 2017 - The Design and Evolution of Event-Driven Databases"
 						/>
 					</div>
@@ -309,7 +386,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item item h-6 sm:h-5 md:h-8"
 						>
-							<NBClogo />
+							<LogoNBC />
 						</a>
 						<a
 							href="https://techcrunch.com/2018/05/23/gun-raises-more-than-1-5m-for-its-decentralized-database-system/"
@@ -317,7 +394,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item item h-6 sm:h-5 md:h-8"
 						>
-							<TechCrunchLogo />
+							<LogoTechCrunch />
 						</a>
 						<a
 							href="https://changelog.com/podcast/236"
@@ -325,7 +402,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item item h-6 sm:h-5 md:h-8"
 						>
-							<ChangelogLogo />
+							<LogoChangelog />
 						</a>
 						<a
 							href="https://finance.yahoo.com/news/hacker-noon-storing-content-blockchain-150011860.html"
@@ -333,7 +410,7 @@ const IndexPage = () => {
 							rel="noopener noreferrer"
 							className="item item h-6 sm:h-5 md:h-8"
 						>
-							<YahooFinanceLogo />
+							<LogoYahooFinance />
 						</a>
 						{/* <a
 							href="https://www.coindesk.com/bitcoins-second-developer-returning-crypto"
@@ -550,10 +627,7 @@ const IndexPage = () => {
 				</div>
 			</div>
 
-			<div
-				className="panel panel-guninfiveminutes"
-				id="guninfiveminutes"
-			>
+			<div className="panel panel-guninfiveminutes" id="guninfiveminutes">
 				<div className="tile py-air flex-col md:items-center lg:items-start">
 					<div className="px-6 lg:px-0 lg:w-box lg:mx-auto">
 						<div className="md:w-8/12 md:mx-auto lg:mx-0">
@@ -832,7 +906,7 @@ const IndexPage = () => {
 							className="item"
 						>
 							<div className="text-sm">
-								<TwitterLogo />
+								<LogoTwitter />
 							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Follow GUN on Twitter
@@ -845,7 +919,7 @@ const IndexPage = () => {
 							className="item"
 						>
 							<div className="text-sm">
-								<GithubLogo />
+								<LogoGithub />
 							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Star GUN on Github
@@ -858,7 +932,7 @@ const IndexPage = () => {
 							className="item"
 						>
 							<div className="text-sm">
-								<DiscordLogo />
+								<LogoDiscord />
 							</div>
 							<span className="hidden sm:w-3/12 text-xxs sm:block lg:text-xs">
 								Join our Discord
@@ -1139,4 +1213,8 @@ const IndexPage = () => {
 	)
 }
 
-export default IndexPage
+export default () => (
+	<BreakpointProvider queries={queries}>
+		<IndexPage />
+	</BreakpointProvider>
+)

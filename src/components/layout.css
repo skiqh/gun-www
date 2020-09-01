@@ -16,8 +16,11 @@ body {
 	-ms-font-feature-settings: "kern", "liga", "clig", "calt";
 	-webkit-font-feature-settings: "kern", "liga", "clig", "calt";
 	font-feature-settings: "kern", "liga", "clig", "calt";
-	@apply bg-gray-900 text-gray-500;
 	min-width: 270px;
+	@apply bg-gray-900 text-gray-500;
+}
+body, .panel .footer {
+	transition: background-color 0.5s ease-in-out, color 0.2s ease-in-out;
 }
 h2, h3 {
 	@apply text-gray-200;
@@ -210,44 +213,44 @@ code {
 	}
 }
 
-@define-mixin panel $name, $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
-	.panel.panel-$(name) .tile a:hover,
-	.panel.panel-$(name) .links .svg-inline--fa {
+@define-mixin panel $theme, $name, $tilecolor, $textcolor, $arrowcolor, $footerleadcolor {
+	body.theme-$(theme) .panel.panel-$(name) .tile a:hover,
+	body.theme-$(theme) .panel.panel-$(name) .links .svg-inline--fa {
 		@apply text-$arrowcolor;
 	}
-	.panel.panel-$(name) > .tile {
+	body.theme-$(theme) .panel.panel-$(name) > .tile {
 		@apply bg-$(tilecolor) text-$(textcolor);
 	}
-	.panel.panel-$(name) .footer .footerlead,
-	.panel.panel-$(name) .footer .footericon {
+	body.theme-$(theme) .panel.panel-$(name) .footer .footerlead,
+	body.theme-$(theme) .panel.panel-$(name) .footer .footericon {
 		@apply text-$(footerleadcolor);
 	}
 }
 
-@mixin panel red, red, white, dark, red {
+@mixin panel dark, red, red, white, dark, red {
 }
-@mixin panel blue, blue, white, yellow, yellow {
+@mixin panel dark, blue, blue, white, yellow, yellow {
 }
-@mixin panel green, green, white, yellow, green {
+@mixin panel dark, green, green, white, yellow, green {
 }
-@mixin panel pink, pink, white, yellow, cyan {
+@mixin panel dark, pink, pink, white, yellow, cyan {
 }
-@mixin panel purple, purple, white, yellow, purple {
+@mixin panel dark, purple, purple, white, yellow, purple {
 }
-@mixin panel dark, dark, white, yellow, pink {
+@mixin panel dark, dark, dark, white, yellow, pink {
 }
-@mixin panel light, light, dark, red, red {
+@mixin panel dark, light, light, dark, red, red {
 }
-@mixin panel cyan, cyan, dark, yellow, cyan {
+@mixin panel dark, cyan, cyan, dark, yellow, cyan {
 }
-@mixin panel yellow, yellow, dark, purple, purple {
+@mixin panel dark, yellow, yellow, dark, purple, purple {
 }
-@mixin panel white, white, dark, red, red {
+@mixin panel dark, white, white, dark, red, red {
 }
 
-@mixin panel guninfiveminutes, purple, white, yellow, yellow {
+@mixin panel dark, guninfiveminutes, purple, white, yellow, yellow {
 }
-@mixin panel code, black, light, red, red {
+@mixin panel dark, code, black, light, red, red {
 }
 
 svg.inline-icon {
@@ -303,53 +306,98 @@ h3 {
 	@apply font-sans text-lg;
 }
 
-
-
+.size-xxl .scheme-switcher-wrapper {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	width: 8rem;
+	height: 3rem;
+}
+.scheme-switcher-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+}
+.scheme-switcher-wrapper svg {
+	position: absolute;
+	max-height: 1.5rem;
+	transition: transform 0.3s ease-in-out;
+}
+.scheme-switcher-wrapper #icon-day {
+	transform-origin: -2em 6em;
+}
+.size-xxl .scheme-switcher-wrapper #icon-day {
+	transform-origin: 2em 6em;
+}
+.scheme-switcher-wrapper #icon-night {
+	transform-origin: 5em 6em;
+}
+.scheme-switcher-wrapper #icon-day path {
+	fill: #000;
+}
+.size-xxl .scheme-switcher-wrapper #icon-night path {
+	fill: #fff9;
+}
+.theme-dark #icon-night {
+	transform: rotate(0deg);
+}
+.theme-light #icon-night {
+	transform: rotate(-70deg);
+}
+.theme-dark #icon-day {
+	transform: rotate(70deg);
+}
+.theme-light #icon-day {
+	transform: rotate(0deg);
+}
 
 @media (prefers-color-scheme: light) {
-	body {
-		@apply bg-light text-dark;
-	}
-	h2, h3 {
-		@apply text-black;
-	}
-	.links a:hover,
-	.links button:hover {
-		@apply text-gray-600;
-	}
-	.panel .footer {
-		@apply bg-white text-dark;
-	}
-	.panel .footer .item svg {
-		@apply text-gray-900;
-	}
-	.panel .footer .item svg stop {
-		stop-color: theme('colors.gray.900');
-	}
-	
-	@mixin panel red, red, white, dark, red {
-	}
-	@mixin panel blue, blue, white, yellow, blue {
-	}
-	@mixin panel green, green, white, yellow, green {
-	}
-	@mixin panel pink, pink, white, yellow, cyan {
-	}
-	@mixin panel purple, purple, white, yellow, purple {
-	}
-	@mixin panel dark, dark, white, yellow, pink {
-	}
-	@mixin panel light, light, dark, red, red {
-	}
-	@mixin panel cyan, cyan, white, yellow, cyan {
-	}
-	@mixin panel yellow, yellow, dark, purple, purple {
-	}
-	@mixin panel white, white, dark, red, red {
-	}
+}
+body.theme-light {
+	@apply bg-light text-dark;
+}
+body.theme-light .links a:hover,
+body.theme-light .links button:hover {
+	@apply text-gray-600;
+}
+body.theme-light .panel .footer {
+	@apply bg-white text-dark;
+}
+body.theme-light .panel .footer .item svg {
+	@apply text-gray-900;
+}
+body.theme-light .panel .footer .item svg stop {
+	stop-color: theme('colors.gray.900');
+}
 
-	@mixin panel guninfiveminutes, cyan, white, yellow, red {
-	}
-	@mixin panel code, white, dark, red, red {
-	}
+@mixin panel light, red, red, white, dark, red {
+}
+@mixin panel light, blue, blue, white, yellow, blue {
+}
+@mixin panel light, green, green, white, yellow, green {
+}
+@mixin panel light, pink, pink, white, yellow, cyan {
+}
+@mixin panel light, purple, purple, white, yellow, purple {
+}
+@mixin panel light, dark, dark, white, yellow, pink {
+}
+@mixin panel light, light, light, dark, red, red {
+}
+@mixin panel light, cyan, cyan, white, yellow, cyan {
+}
+@mixin panel light, yellow, yellow, dark, purple, purple {
+}
+@mixin panel light, white, white, dark, red, red {
+}
+
+@mixin panel light, guninfiveminutes, cyan, white, yellow, red {
+}
+@mixin panel light, code, white, dark, red, red {
+}
+
+body.theme-light h2, 
+body.theme-light h3 {
+	color: inherit;
 }
