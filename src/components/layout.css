@@ -313,37 +313,37 @@ h3 {
 	@apply font-sans text-lg;
 }
 
-.size-xxl .scheme-switcher-wrapper {
+.size-xxl .scheme-switcher-btn {
 	position: fixed;
 	top: 1rem;
 	right: 1rem;
 	width: 8rem;
 	height: 3rem;
 }
-.scheme-switcher-wrapper {
+.scheme-switcher-btn {
 	position: relative;
 	overflow: hidden;
 	display: flex;
 	align-items: center;
 }
-.scheme-switcher-wrapper svg {
+.scheme-switcher-btn svg {
 	position: absolute;
 	max-height: 1.5rem;
 	transition: transform 0.3s ease-in-out;
 }
-.scheme-switcher-wrapper #icon-day {
+.scheme-switcher-btn #icon-day {
 	transform-origin: -2em 6em;
 }
-.size-xxl .scheme-switcher-wrapper #icon-day {
+.size-xxl .scheme-switcher-btn #icon-day {
 	transform-origin: 2em 6em;
 }
-.scheme-switcher-wrapper #icon-night {
+.scheme-switcher-btn #icon-night {
 	transform-origin: 5em 6em;
 }
-.scheme-switcher-wrapper #icon-day path {
+.scheme-switcher-btn #icon-day path {
 	fill: #000;
 }
-.size-xxl .scheme-switcher-wrapper #icon-night path {
+.size-xxl .scheme-switcher-btn #icon-night path {
 	fill: #fff9;
 }
 .theme-dark #icon-night {

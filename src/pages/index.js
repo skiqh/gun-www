@@ -127,7 +127,10 @@ const IndexPage = () => {
 		set_copied_browser_b(true)
 		setTimeout(set_copied_browser_b, 50, false)
 	}
-	const changeTheme = () => {
+
+	const clickThemeButton = evt => {
+		const target = evt && evt.currentTarget
+		target && target.blur()
 		set_theme(theme === "dark" ? "light" : "dark")
 	}
 
@@ -195,8 +198,8 @@ const IndexPage = () => {
 								<LogoGithub />
 							</a>
 							<button
-								className="scheme-switcher-wrapper p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
-								onClick={changeTheme}
+								className="scheme-switcher-btn p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
+								onClick={clickThemeButton}
 							>
 								<IconNight />
 								<IconDay />

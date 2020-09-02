@@ -39,12 +39,14 @@ const NotfoundPage = () => {
 	)
 	console.log(`matchPoints`, matchPoints, theme)
 
-	const changeTheme = () => {
+	const clickThemeButton = evt => {
+		const target = evt && evt.currentTarget
+		target && target.blur()
 		set_theme(theme === "dark" ? "light" : "dark")
 	}
 
 	useEffect(() => {
-		window.document.body.classList.toggle("themed", theme === "dark" || theme === "light")
+		window.document.body.classList.add("themed")
 		window.document.body.classList.toggle("theme-dark", theme === "dark")
 		window.document.body.classList.toggle("theme-light", theme === "light")
 		window.document.body.classList.toggle("size-xs", matchPoints.xs)
@@ -103,8 +105,8 @@ const NotfoundPage = () => {
 								<LogoGithub />
 							</a>
 							<button
-								className="scheme-switcher-wrapper p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
-								onClick={changeTheme}
+								className="scheme-switcher-btn p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
+								onClick={clickThemeButton}
 							>
 								<IconNight />
 								<IconDay />
