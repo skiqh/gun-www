@@ -109,7 +109,6 @@ const IndexPage = () => {
 	const [theme, set_theme] = useState(
 		matchPoints.prefersLightMode ? "light" : "dark"
 	)
-	console.log(`matchPoints`, matchPoints, theme)
 
 	const highlight_cli = () => {
 		set_copied_cli(true)

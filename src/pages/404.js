@@ -37,7 +37,6 @@ const NotfoundPage = () => {
 	const [theme, set_theme] = useState(
 		matchPoints.prefersLightMode ? "light" : "dark"
 	)
-	console.log(`matchPoints`, matchPoints, theme)
 
 	const clickThemeButton = evt => {
 		const target = evt && evt.currentTarget
