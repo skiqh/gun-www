@@ -1,8 +1,35 @@
 module.exports = {
 	theme: {
 		fontFamily: {
-			sans: ["Raleway"],
-			mono: ['"Share Tech Mono"'],
+			sans: [
+				"Raleway",
+				"Corbel",
+				'"Lucida Grande"',
+				'"Lucida Sans Unicode"',
+				'"Lucida Sans"',
+				'"DejaVu Sans"',
+				'"Bitstream Vera Sans"',
+				'"Liberation Sans"',
+				"Verdana",
+				'"Verdana Ref"',
+				"sans-serif",
+			],
+			mono: [
+				'"Share Tech Mono"',
+				"Consolas",
+				'"Andale Mono WT"',
+				'"Andale Mono"',
+				'"Lucida Console"',
+				'"Lucida Sans Typewriter"',
+				'"DejaVu Sans Mono"',
+				'"Bitstream Vera Sans Mono"',
+				'"Liberation Mono"',
+				'"Nimbus Mono L"',
+				"Monaco",
+				'"Courier New"',
+				"Courier",
+				"monospace",
+			],
 		},
 
 		extend: {

@@ -200,6 +200,9 @@ const IndexPage = () => {
 							<button
 								className="scheme-switcher-btn p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
 								onClick={clickThemeButton}
+								aria-label={`switch to ${
+									theme === "dark" ? "light" : "dark"
+								} theme`}
 							>
 								<IconNight />
 								<IconDay />
@@ -257,14 +260,26 @@ const IndexPage = () => {
 						<h2>Get ready to disrupt Big Tech</h2>
 						<p>
 							GUN gives you the most powerful weapons of the internet —{" "}
-							<button onClick={scroll("decentralization")}>
+							<button
+								onClick={scroll("decentralization")}
+								aria-label="scroll to section about decentralization"
+							>
 								decentralization
 							</button>{" "}
-							and <button onClick={scroll("privacy")}>real privacy</button> — to
-							reclaim the web and make it truly free and open.
+							and{" "}
+							<button
+								onClick={scroll("privacy")}
+								aria-label="scroll to section about privacy"
+							>
+								real privacy
+							</button>{" "}
+							— to reclaim the web and make it truly free and open.
 						</p>
 						<div className="links">
-							<button onClick={scroll("guninfiveminutes")}>
+							<button
+								onClick={scroll("guninfiveminutes")}
+								aria-label="scroll to quick start section"
+							>
 								<FontAwesomeIcon icon={faArrowRight} />
 								Get up and running with GUN in five minutes or less
 							</button>
@@ -275,6 +290,7 @@ const IndexPage = () => {
 									dwebVideo.current.play &&
 									dwebVideo.current.play()
 								}
+								aria-label="start video about GUN's vision"
 							>
 								<FontAwesomeIcon icon={faArrowRight} />
 								Watch GUN's author share his vision for the web
@@ -712,8 +728,9 @@ const IndexPage = () => {
 												<div className="buttons">
 													<button
 														className={
-															copied_script ? "text-pink" : "text-dark"
+															copied_script ? "text-pink" : "text-gray-500"
 														}
+														aria-label="copy code to clipboard"
 													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
@@ -769,8 +786,9 @@ const IndexPage = () => {
 												<div className="buttons">
 													<button
 														className={
-															copied_browser_a ? "text-pink" : "text-dark"
+															copied_browser_a ? "text-pink" : "text-gray-500"
 														}
+														aria-label="copy code to clipboard"
 													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
@@ -793,8 +811,9 @@ const IndexPage = () => {
 												<div className="buttons">
 													<button
 														className={
-															copied_browser_b ? "text-pink" : "text-dark"
+															copied_browser_b ? "text-pink" : "text-gray-500"
 														}
+														aria-label="copy code to clipboard"
 													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>
@@ -860,7 +879,8 @@ const IndexPage = () => {
 											<div className="tile code cursor-pointer">
 												<div className="buttons">
 													<button
-														className={copied_cli ? "text-pink" : "text-dark"}
+														className={copied_cli ? "text-pink" : "text-gray-500"}
+														aria-label="copy code to clipboard"
 													>
 														<FontAwesomeIcon icon={faCopy} />
 													</button>

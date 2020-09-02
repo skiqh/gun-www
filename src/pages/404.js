@@ -107,6 +107,9 @@ const NotfoundPage = () => {
 							<button
 								className="scheme-switcher-btn p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
 								onClick={clickThemeButton}
+								aria-label={`switch to ${
+									theme === "dark" ? "light" : "dark"
+								} theme`}
 							>
 								<IconNight />
 								<IconDay />

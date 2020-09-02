@@ -51,14 +51,27 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-google-fonts`,
+			resolve: `gatsby-plugin-webfonts`,
 			options: {
-				fonts: [
-					`Raleway:500,700`,
-					`Share Tech Mono`,
-					// you can also specify font weights and styles
-				],
-				display: "block",
+				fonts: {
+					google: [
+						{
+							family: `Raleway`,
+							subsets: [`latin`],
+							variants: [`500`, `700`],
+						},
+						{
+							family: `Share Tech Mono`,
+							subsets: [`latin`],
+						},
+					],
+				},
+				// fonts: [
+				// 	`Raleway:500,700`,
+				// 	`Share Tech Mono`,
+				// 	// you can also specify font weights and styles
+				// ],
+				display: "swap",
 			},
 		},
 		// `gatsby-plugin-postcss`,
