@@ -132,6 +132,7 @@ const IndexPage = () => {
 	}
 
 	useEffect(() => {
+		window.document.body.classList.toggle("themed", theme === "dark" || theme === "light")
 		window.document.body.classList.toggle("theme-dark", theme === "dark")
 		window.document.body.classList.toggle("theme-light", theme === "light")
 		window.document.body.classList.toggle("size-xs", matchPoints.xs)
@@ -193,13 +194,13 @@ const IndexPage = () => {
 							>
 								<LogoGithub />
 							</a>
-							<div
+							<button
 								className="scheme-switcher-wrapper p-1 sm:p-2 h-8 md:h-12 w-12 sm:w-14"
 								onClick={changeTheme}
 							>
 								<IconNight />
 								<IconDay />
-							</div>
+							</button>
 						</div>
 					</header>
 					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
@@ -896,7 +897,7 @@ const IndexPage = () => {
 						</div>
 					</div>
 				</div>
-				<div className="footer">
+				<div className="footer community-links">
 					<div className="inner lg:w-box lg:mx-auto px-6 lg:px-0">
 						<span className="pr-16 hidden md:block footerlead">Join us!</span>
 						<a

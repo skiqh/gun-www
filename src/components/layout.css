@@ -6,6 +6,7 @@ html {
 	box-sizing: border-box;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	@apply bg-gray-900 text-gray-500;
 }
 
 body {
@@ -19,8 +20,14 @@ body {
 	min-width: 270px;
 	@apply bg-gray-900 text-gray-500;
 }
+body:not(.themed) {
+	opacity: 0;
+}
+body.themed {
+	opacity: 1;
+}
 body, .panel .footer {
-	transition: background-color 0.5s ease-in-out, color 0.2s ease-in-out;
+	transition: background-color 0.5s ease-in-out, color 0.2s ease-in-out, opacity 0.2s 0.2s ease-in-out;
 }
 h2, h3 {
 	@apply text-gray-200;
@@ -278,11 +285,11 @@ svg.inline-icon {
 		display: block;
 	}
 }
-#guninfiveminutes .footer .item {
+.footer.community-links .item {
 	letter-spacing: 0.05em;
 	@apply flex flex-row items-center uppercase whitespace-pre;
 }
-#guninfiveminutes .footer .inline-icon {
+.footer.community-links .inline-icon {
 	@apply mr-3;
 }
 
