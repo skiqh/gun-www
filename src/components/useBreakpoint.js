@@ -5,7 +5,7 @@ const defaultValue = {}
 const BreakpointContext = createContext(defaultValue)
 
 const BreakpointProvider = ({ children, queries }) => {
-	const [queryMatch, setQueryMatch] = useState({})
+	const [queryMatch, setQueryMatch] = useState(null)
 
 	useEffect(() => {
 		const mediaQueryLists = {}
@@ -52,6 +52,8 @@ const BreakpointProvider = ({ children, queries }) => {
 		}
 	}, [queries])
 
+	if(!queryMatch)
+		return <></>
 	return (
 		<BreakpointContext.Provider value={queryMatch}>
 			{children}
